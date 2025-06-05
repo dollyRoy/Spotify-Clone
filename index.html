@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spotify - Web Player: Music for everyone</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;600;700&display=swap" rel="stylesheet">
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="./assets/logo.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <div class="main">
+    <div class="sidebar">
+      <div class="nav">
+      
+        
+      
+        <div class="nav-option" id="nav-logo">
+          <i class="fa-solid fa-house"></i> <!-- Correct class -->
+          Home
+        </div>
+        <div class="nav-option">
+          <i class="fa-solid fa-magnifying-glass"></i> <!-- Correct class -->
+          Search
+        </div>
+      </div>
+
+      <!-- /* library section*/ -->
+      <div class="library">
+        <div class="options">
+          <div class="lib-option nav-option">
+            <img src="assets/library_icon.png">
+            Your Library
+          </div>
+          <div class="icons">
+            <i class="fa-solid fa-plus"></i> <!-- Correct class -->
+            <i class="fa-solid fa-arrow-right"></i> <!-- Correct class -->
+          </div>
+        </div>
+        <div class="lib-box">
+          <div class="box">
+            <p class="box-p1">Create your first playlist</p>
+            <p class="box-p2">It's easy we'll help you</p>
+            <button class="badge">Create playlist</button>
+          </div>
+          <div class="lib-box">
+            <div class="box">
+              <p class="box-p1">Let's find some podcasts to follow</p>
+              <p class="box-p2">We'll keep you updated on new episodes</p>
+              <button class="badge">Browse podcasts</button>
+            </div>
+          </div>
+        </div>
+        <!-- 
+      
+      <div class="library-footer"> -->
+        <h1>Song List</h1>
+        <div class="song-list">
+          <ul>
+            <!-- Songs will be added dynamically via JS -->
+          </ul>
+        </div>
+
+        <!-- </div> -->
+
+
+        <!-- <div class="language-section">
+          <button class="language-btn">
+            <i class="fa-solid fa-globe"></i> English
+          </button>
+        </div> -->
+
+      </div>
+    </div>
+
+
+    <!-- /* main content section*/ -->
+    <div class="main-content">
+      <!-- sticky- nav section-->
+
+
+      <div class="sticky-nav">
+  
+        <div class="sticky-nav-icons">
+          <img src="./assets/backward_icon.png">
+          <img src="./assets/forward_icon.png">
+        </div>
+          <div class="hamburger">
+            <i class="fa-solid fa-bars"></i>
+            
+          </div>
+      
+        <!-- Search Bar -->
+        <div class="search-bar">
+          <input type="text" placeholder="What do you want to listen to?">
+          <i class="fas fa-search"></i>
+        </div>
+        <div class="sticky-nav-options">
+
+          <button class="badge nav-item  hide">Explore premium</button>
+          <button class="badge nav-item dark-badge"><i class="fa-regular fa-circle-down" style=""></i> Install app
+          </button>
+          <!-- Profile Section -->
+          <span id="profileName" style="cursor: pointer;" onclick="redirectToLogin()" style="border-radius: 50%;">
+            Profile
+          </span>
+          <!-- <i class="fa-regular fa-user nav-item"></i> -->
+
+
+
+          <script>
+            // Check if user is logged in
+            const user = localStorage.getItem('spotifyUser');
+
+            if (user) {
+              document.getElementById('profileName').innerText = user;
+            }
+          </script>
+          <i class="fa-regular fa-user nav-item"></i>
+        </div>
+      </div>
+      <!-- /* cards section*/ -->
+
+      <!--Section-1-->
+
+
+      <div class="scroll-wrapper">
+        
+        <div class="cards-container">
+          <!-- <div class="card">
+            <img class="card-img" src="./assets/card1img.jpeg">
+            <p class="card-title">Top 50-Global</p>
+            <p class="card-info">Your daily update of most played tracks...</p>
+          </div> -->
+          <h1>Recently Played</h1>
+          <div class="cards-container" id="recently-played">
+            <!-- Cards will be added here dynamically -->
+          </div>
+
+        </div>
+        <!--Popular artists-->
+
+        <h1>Popular artists</h1>
+        <!--cards1-->
+        <div class="cards-container">
+          <div class="card">
+            <div class="artistImg">
+              <img class="card-img"
+                src="https://img.discogs.com/vGsioytB0N4XeMxmyK1yYQQRT5o=/525x515/smart/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/A-3895034-1517157761-2697.jpeg.jpg"
+                style="border-radius: 50%">
+              <div class="play-btn">
+                <i class="fa-solid fa-play"></i>
+              </div>
+              <p class="card-title">
+              <h2>Pritam</h2>
+              </p>
+              <p style="color:grey; font-size: x-large;font-weight: 900;">Artist</p>
+            </div>
+
+
+          </div>
+          <!--cards2-->
+          <div class="card">
+            <img class="card-img"
+              src="https://th.bing.com/th/id/OIP.41ATLhwkn26_srtqCsCLAQHaHZ?w=181&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+              style="border-radius:50%">
+            <p class="card-title">
+            <h2>Arijit Singh</h2>
+            </p>
+            <p style="color:grey; font-size: x-large;font-weight: 900;">Artist</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+
+          <!--cards4-->
+          <div class="card">
+            <img class="card-img" src="https://th.bing.com/th/id/OIP.iaqNrtR_sc9UthWGA0YE3QHaHa?rs=1&pid=ImgDetMain"
+              style=" border-radius: 50%;">
+            <p class="card-title">
+            <h2>Sachin-Jigar</h2>
+            </p>
+            <p style="color:grey; font-size: x-large;font-weight: 900;">Artist</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+          <!--cards5-->
+          <div class="card">
+            <img class="card-img" src="https://th.bing.com/th/id/OIP.U9gBxdh07z-Jj0CSvKL0qgAAAA?rs=1&pid=ImgDetMain "
+              style=" border-radius: 50%;">
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+            <p class="card-title">
+            <h2>Vishal Sekhar</h2>
+            </p>
+            <p style="color:grey; font-size: x-large;font-weight: 900;">Artist</p>
+
+          </div>
+
+          <!-- cards6 -->
+          <div class="card">
+            <img class="card-img"
+              src="https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da843f62d1e7cabffe4511903b9f"
+              style=" border-radius: 50%">
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+            <p class="card-title">
+            <h2>Shreya Ghoshal</h2>
+            </p>
+            <p style="color:grey; font-size: x-large;font-weight: 900;">Artist</p>
+
+          </div>
+          <!-- card 7 -->
+          <div class="card">
+            <img class="card-img" src="https://i.scdn.co/image/ab67706c0000da843531f87c8efe3761214bc0c7"
+              style=" border-radius: 50%">
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+            <p class="card-title">
+            <h2>Sunidhi Chauhan</h2>
+            </p>
+            <p style="color:grey; font-size: x-large;font-weight: 900;">Artist</p>
+
+          </div>
+
+          <!-- card 8 -->
+          <div class="card">
+            <img class="card-img" src="https://i.scdn.co/image/4df9740f3f6bfcc28e9c8c57ecf4c7eda4a2e42b"
+              style=" border-radius: 50%">
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+            <p class="card-title">
+            <h2>A.R.Rahman</h2>
+            </p>
+            <p style="color:grey; font-size: x-large;font-weight: 900;">Artist</p>
+
+          </div>
+          <!-- card 9 -->
+          <div class="card">
+            <img class="card-img" src="https://i.pinimg.com/736x/f5/a9/07/f5a9071d88cba9e36f5ae184cd7d885a.jpg"
+              style=" border-radius: 50%">
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+            <p class="card-title">
+            <h2>Atif Aslam</h2>
+            </p>
+            <p style="color:grey; font-size: x-large;font-weight: 900;">Artist</p>
+
+          </div>
+          <!-- card 10 -->
+          <div class="card">
+            <img class="card-img" src="https://i.scdn.co/image/ab6761610000e5eb1dcbb331f2318db2dd2c6bcf"
+              style=" border-radius: 50%">
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+            <p class="card-title">
+            <h2>Amit Trivedi</h2>
+            </p>
+            <p style="color:grey; font-size: x-large;font-weight: 900;">Artist</p>
+
+          </div>
+          <!-- card 11 -->
+          <div class="card">
+            <img class="card-img" src="https://c.saavncdn.com/artists/Palak_Muchhal_002_20220825160809_500x500.jpg"
+              style=" border-radius: 50%">
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+            <p class="card-title">
+            <h2>Palak Muchhal</h2>
+            </p>
+            <p style="color:grey; font-size: x-large;font-weight: 900;">Artist</p>
+
+          </div>
+          <!-- card 12 -->
+          <div class="card">
+            <img class="card-img"
+              src="https://alchetron.com/cdn/kailash-kher-156bb8af-e813-4c8e-87ad-45d63b24f3c-resize-750.jpeg"
+              style=" border-radius: 50%">
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+            <p class="card-title">
+            <h2>Kailash Kher</h2>
+            </p>
+            <p style="color:grey; font-size: x-large;font-weight: 900;">Artist</p>
+
+          </div>
+        </div>
+
+
+
+
+        <!--Section-2-->
+
+        <p class="heading">Popular albums and singles</p>
+        <div class="cards-container">
+          <!--cards2-->
+          <div class="card">
+            <img class="card-img" src="https://i.scdn.co/image/ab67706f000000033d1836fec89465a2cf8eb702">
+            <p class="card-title">Bollywood Central</p>
+            <p class="card-info">Bollywood Central , jab baje toh seedha dil ke centre mein lage...</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+          <!--cards3-->
+          <div class="card">
+            <img class="card-img"
+              src="https://th.bing.com/th/id/OIP.2L_ZKEQe_fs_WdK5RDtmWwHaHa?w=179&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7">
+            <p class="card-title">"Bass itni tez ki mohalla hil jaaye!"</p>
+            <p class="card-info">Latest music from your fav |
+              Cover — Beat Baba & Shakira Bhabhi 😎...</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+          <!--cards4-->
+          <div class="card">
+            <img class="card-img" src="https://i.scdn.co/image/ab67706f00000002986988dda30dee0642dbd07c">
+            <p class="card-title">New in Dance</p>
+            <p class="card-info">With the desi beats & filmy vibe, the party begins with...</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+          <!--cards5-->
+          <div class="card">
+            <img class="card-img" src="https://i.scdn.co/image/ab67706f00000002cd463a1e3778993ca3976e42">
+            <p class="card-title">Latest Love Tunes</p>
+            <p class="card-info">Step into a magical world of love with these mushy songs...</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+          <!--cards6-->
+          <div class="card">
+            <img class="card-img" src="https://i.scdn.co/image/ab67706f0000000307c006b2a2f49ecf1997e046">
+            <p class="card-title">New Rap Hindi</p>
+            <p class="card-info">Naya Hip-Hop Hindi! Cover: panther...</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+          <!--cards7-->
+          <div class="card">
+            <img class="card-img" src="https://i.scdn.co/image/ab67616d0000b273931b61b7382db17ed15e75fc">
+            <p class="card-title">Maand</p>
+            <p class="card-info">Song . Banyan,Hassan Raheem , Rovalio...</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+          <!--cards8-->
+
+        </div>
+
+        <p class="heading">Recommended Today</p>
+        <div class="cards-container">
+
+          <div class="card">
+            <img class="card-img" src="https://i.scdn.co/image/ab67706f0000000278c3ea7da56f79e29f208a02">
+            <p class="card-title">Hot Hits Hindi</p>
+            <p class="card-info">Hottest Hindi music that Inidia is listening to. Cover - Stree 2</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+          <!--cards2-->
+          <div class="card">
+            <img class="card-img" src="https://i.scdn.co/image/ab67706f00000003374702be458b4953cc1f20c7">
+            <p class="card-title">Trending Valentine's Hits
+            </p>
+            <p class="card-info">Inida's ultimate love playlist
+              Cover - Shehesha
+            </p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+          <!--cards3-->
+          <div class="card">
+            <img class="card-img" src="https://i.scdn.co/image/ab67706f0000000384b4f9fcc00ba3db4f05bf09">
+            <p class="card-title">Bollywood Mush</p>
+            <p class="card-info">Let these songs to be the background scor...</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+          <!--cards4-->
+          <div class="card">
+            <img class="card-img" style=" height:fit-content;"
+              src="https://i.ytimg.com/vi/VYjKJ19bqx0/maxresdefault.jpg">
+            <p class="card-title">Happy vibes</p>
+            <p class="card-info">
+              Bright, sunny, catchy tunes put a smile on your face. Cover - Tu Jhoothi Main Makkaar...</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img" src="https://i.scdn.co/image/ab67706f0000000278c3ea7da56f79e29f208a02">
+            <p class="card-title">Hot Hits Hindi</p>
+            <p class="card-info">Hottest Hindi music that Inidia is listening to. Cover - Stree 2</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+          <!--cards2-->
+          <div class="card">
+            <img class="card-img" src="https://i.scdn.co/image/ab67706f00000003374702be458b4953cc1f20c7">
+            <p class="card-title">Trending Valentine's Hits
+            </p>
+            <p class="card-info">Inida's ultimate love playlist
+              Cover - Shehesha
+            </p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+          <!--cards3-->
+          <div class="card">
+            <img class="card-img" src="https://i.scdn.co/image/ab67706f0000000384b4f9fcc00ba3db4f05bf09">
+            <p class="card-title">Bollywood Mush</p>
+            <p class="card-info">Let these songs to be the background scor...</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+          <!--cards4-->
+          <div class="card">
+            <img class="card-img" style=" height:fit-content;"
+              src="https://i.ytimg.com/vi/VYjKJ19bqx0/maxresdefault.jpg">
+            <p class="card-title">Happy vibes</p>
+            <p class="card-info">
+
+              Bright, sunny, catchy tunes put a smile on your face. Cover - Tu Jhoothi Main Makkaar...</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img" src="https://i.scdn.co/image/ab67706f0000000384b4f9fcc00ba3db4f05bf09">
+            <p class="card-title">Bollywood Mush</p>
+            <p class="card-info">Let these songs to be the background scor...</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+          <!--cards4-->
+          <div class="card">
+            <img class="card-img" style=" height:fit-content;"
+              src="https://i.ytimg.com/vi/VYjKJ19bqx0/maxresdefault.jpg">
+            <p class="card-title">Happy vibes</p>
+            <p class="card-info">
+
+              Bright, sunny, catchy tunes put a smile on your face. Cover - Tu Jhoothi Main Makkaar...</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img" src="https://i.scdn.co/image/ab67706f0000000384b4f9fcc00ba3db4f05bf09">
+            <p class="card-title">Bollywood Mush</p>
+            <p class="card-info">Let these songs to be the background scor...</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+          <!--cards4-->
+          <div class="card">
+            <img class="card-img" style=" height:fit-content;"
+              src="https://i.ytimg.com/vi/VYjKJ19bqx0/maxresdefault.jpg">
+            <p class="card-title">Happy vibes</p>
+            <p class="card-info">
+
+              Bright, sunny, catchy tunes put a smile on your face. Cover - Tu Jhoothi Main Makkaar...</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+        </div>
+
+        <!--Section-3-->
+
+
+        <div class="cards-container">
+
+          <div class="card">
+            <img class="card-img" src="https://i.scdn.co/image/ab67706f0000000278c3ea7da56f79e29f208a02">
+            <p class="card-title">Hot Hits Hindi</p>
+            <p class="card-info">Hottest Hindi music that Inidia is listening to. Cover - Stree 2</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+          <!--cards2-->
+          <div class="card">
+            <img class="card-img" src="https://i.scdn.co/image/ab67706f00000003374702be458b4953cc1f20c7">
+            <p class="card-title">Trending Valentine's Hits
+            </p>
+            <p class="card-info">Inida's ultimate love playlist
+              Cover - Shehesha
+            </p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+          <!--cards3-->
+          <div class="card">
+            <img class="card-img" src="https://i.scdn.co/image/ab67706f0000000384b4f9fcc00ba3db4f05bf09">
+            <p class="card-title">Bollywood Mush</p>
+            <p class="card-info">Let these songs to be the background scor...</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+          <!--cards4-->
+          <div class="card">
+            <img class="card-img" style=" height:fit-content;"
+              src="https://i.ytimg.com/vi/VYjKJ19bqx0/maxresdefault.jpg">
+            <p class="card-title">Happy vibes</p>
+            <p class="card-info">
+
+              Bright, sunny, catchy tunes put a smile on your face. Cover - Tu Jhoothi Main Makkaar...</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img" src="https://i.scdn.co/image/ab67706f0000000278c3ea7da56f79e29f208a02">
+            <p class="card-title">Hot Hits Hindi</p>
+            <p class="card-info">Hottest Hindi music that Inidia is listening to. Cover - Stree 2</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+          <!--cards2-->
+          <div class="card">
+            <img class="card-img" src="https://i.scdn.co/image/ab67706f00000003374702be458b4953cc1f20c7">
+            <p class="card-title">Trending Valentine's Hits
+            </p>
+            <p class="card-info">Inida's ultimate love playlist
+              Cover - Shehesha
+            </p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+          <!--cards3-->
+          <div class="card">
+            <img class="card-img" src="https://i.scdn.co/image/ab67706f0000000384b4f9fcc00ba3db4f05bf09">
+            <p class="card-title">Bollywood Mush</p>
+            <p class="card-info">Let these songs to be the background scor...</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+          <!--cards4-->
+          <div class="card">
+            <img class="card-img" style=" height:fit-content;"
+              src="https://i.ytimg.com/vi/VYjKJ19bqx0/maxresdefault.jpg">
+            <p class="card-title">Happy vibes</p>
+            <p class="card-info">
+
+              Bright, sunny, catchy tunes put a smile on your face. Cover - Tu Jhoothi Main Makkaar...</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img" src="https://i.scdn.co/image/ab67706f0000000384b4f9fcc00ba3db4f05bf09">
+            <p class="card-title">Bollywood Mush</p>
+            <p class="card-info">Let these songs to be the background scor...</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+          <!--cards4-->
+          <div class="card">
+            <img class="card-img" style=" height:fit-content;"
+              src="https://i.ytimg.com/vi/VYjKJ19bqx0/maxresdefault.jpg">
+            <p class="card-title">Happy vibes</p>
+            <p class="card-info">
+
+              Bright, sunny, catchy tunes put a smile on your face. Cover - Tu Jhoothi Main Makkaar...</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img" src="https://i.scdn.co/image/ab67706f0000000384b4f9fcc00ba3db4f05bf09">
+            <p class="card-title">Bollywood Mush</p>
+            <p class="card-info">Let these songs to be the background scor...</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+          <!--cards4-->
+          <div class="card">
+            <img class="card-img" style=" height:fit-content;"
+              src="https://i.ytimg.com/vi/VYjKJ19bqx0/maxresdefault.jpg">
+            <p class="card-title">Happy vibes</p>
+            <p class="card-info">
+
+              Bright, sunny, catchy tunes put a smile on your face. Cover - Tu Jhoothi Main Makkaar...</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+        </div>
+
+        <!--Section-3-->
+
+
+
+        <h1>Featured Charts</h1>
+        <div class="cards-container">
+          <!--cards1-->
+          <div class="card">
+            <img class="card-img" src="./assets/card1img.jpeg">
+            <p class="card-title">Your weekly update of the most played track...</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+
+          </div>
+          <!--cards2-->
+          <div class="card">
+            <img class="card-img" src="./assets/card6img.jpeg">
+            <!-- <p class="card-title">Top 50-Global</p> -->
+            <p style="font-size: medium;" class="card-info">Your daily update of most played tracks...</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+          <!--cards3-->
+          <div class="card">
+            <img class="card-img" src="https://i.scdn.co/image/ab67706c0000da845b50e1d3f99a313825abd9f0">
+            <p style="font-size: medium;" class="card-info">Your daily update of most viral tracks right...</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+          <!--cards4-->
+          <div class="card">
+            <img class="card-img"
+              src="https://charts-images.scdn.co/assets/locale_en/viral/daily/region_bg_default.jpg">
+            <p class="card-title">Viral Top-50</p>
+            <p style="font-size: medium;" class="card-info">Your daily update of most played track...</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+          <!--cards5-->
+          <div class="card">
+            <img class="card-img" src="assets/card5img.jpeg">
+            <p style="font-size: medium;" class="card-info">Your weekly update of most viral tracks right...</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+
+        </div>
+        <!--Section-2-->
+
+
+        <!--Section 4-->
+        <h1>Fresh new music</h1>
+        <!--cards1-->
+        <div class="cards-container">
+          <div class="card">
+            <img class="card-img" src="https://i.scdn.co/image/ab67706f0000000278c3ea7da56f79e29f208a02">
+            <p class="card-title">Hot Hits Hindi</p>
+            <p class="card-info">Hottest Hindi music that Inidia is listening to. Cover - Stree 2</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+          <!--cards2-->
+          <div class="card">
+            <img class="card-img" src="https://i.scdn.co/image/ab67706f00000003374702be458b4953cc1f20c7">
+            <p class="card-title">Trending Valentine's Hits
+            </p>
+            <p class="card-info">Inida's ultimate love playlist
+              Cover - Shehesha
+            </p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+          <!--cards3-->
+          <div class="card">
+            <img class="card-img" src="https://i.scdn.co/image/ab67706f0000000384b4f9fcc00ba3db4f05bf09">
+            <p class="card-title">Bollywood Mush</p>
+            <p class="card-info">Let these songs to be the background scor...</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+          <!--cards4-->
+          <div class="card">
+            <img class="card-img" style=" height:fit-content;"
+              src="https://i.ytimg.com/vi/VYjKJ19bqx0/maxresdefault.jpg">
+            <p class="card-title">Happy vibes</p>
+            <p class="card-info">
+
+              Bright, sunny, catchy tunes put a smile on your face. Cover - Tu Jhoothi Main Makkaar...</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img" src="https://i.scdn.co/image/ab67706f0000000278c3ea7da56f79e29f208a02">
+            <p class="card-title">Hot Hits Hindi</p>
+            <p class="card-info">Hottest Hindi music that Inidia is listening to. Cover - Stree 2</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+          <!--cards2-->
+          <div class="card">
+            <img class="card-img" src="https://i.scdn.co/image/ab67706f00000003374702be458b4953cc1f20c7">
+            <p class="card-title">Trending Valentine's Hits
+            </p>
+            <p class="card-info">Inida's ultimate love playlist
+              Cover - Shehesha
+            </p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+          <!--cards3-->
+          <div class="card">
+            <img class="card-img" src="https://i.scdn.co/image/ab67706f0000000384b4f9fcc00ba3db4f05bf09">
+            <p class="card-title">Bollywood Mush</p>
+            <p class="card-info">Let these songs to be the background scor...</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+          <!--cards4-->
+          <div class="card">
+            <img class="card-img" style=" height:fit-content;"
+              src="https://i.ytimg.com/vi/VYjKJ19bqx0/maxresdefault.jpg">
+            <p class="card-title">Happy vibes</p>
+            <p class="card-info">
+              Bright, sunny, catchy tunes put a smile on your face. Cover - Tu Jhoothi Main Makkaar...</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img" src="https://i.scdn.co/image/ab67706f0000000278c3ea7da56f79e29f208a02">
+            <p class="card-title">Hot Hits Hindi</p>
+            <p class="card-info">Hottest Hindi music that Inidia is listening to. Cover - Stree 2</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+          <!--cards2-->
+          <div class="card">
+            <img class="card-img" src="https://i.scdn.co/image/ab67706f00000003374702be458b4953cc1f20c7">
+            <p class="card-title">Trending Valentine's Hits
+            </p>
+            <p class="card-info">Inida's ultimate love playlist
+              Cover - Shehesha
+            </p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+          <!--cards3-->
+          <div class="card">
+            <img class="card-img" src="https://i.scdn.co/image/ab67706f0000000384b4f9fcc00ba3db4f05bf09">
+            <p class="card-title">Bollywood Mush</p>
+            <p class="card-info">Let these songs to be the background scor...</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+          <!--cards4-->
+          <div class="card">
+            <img class="card-img" style=" height:fit-content;"
+              src="https://i.ytimg.com/vi/VYjKJ19bqx0/maxresdefault.jpg">
+            <p class="card-title">Happy vibes</p>
+            <p class="card-info">
+
+              Bright, sunny, catchy tunes put a smile on your face. Cover - Tu Jhoothi Main Makkaar...</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+
+        </div>
+        <!--Section 5-->
+
+
+        <h1>Episodes for you</h1>
+        <!--cards1-->
+        <div class="cards-container">
+          <div class="card">
+            <img class="card-img" src="./assets/SACHOCHE.png">
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+            <p class="card-title">SACOCHE simba la rue(feat.baby...</p>
+            <p class="card-info"><i class="fa-solid fa-e"></i> Mar 2024 . 3 min</p>
+
+          </div>
+          <div class="card">
+            <img class="card-img" src="https://i.scdn.co/image/ab67706f000000025656781193450d7b309e413c">
+            <p class="card-title">Lofi vibe Hindi</p>
+            <p class="card-info">Inhale & exhale to the beats of Lofi.</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+          <!--cards2-->
+          <div class="card">
+            <img class="card-img" src="https://pm1.narvii.com/5931/305067362530a7a5722bdb336344515aaf522366_hq.jpg">
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+            <p class="card-title"> Hachiman Hikigaya's Speech...
+            </p>
+            <p class="card-info">Juun 2022 . 2 min</p>
+          </div>
+          <!--cards3-->
+          <div class="card">
+            <img class="card-img" src="./assets/stuckInARut.png">
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+            <p class="card-title">Stuck in a rut , advice session...</p>
+            <p class="card-info">Feb 2 . 63 min</p>
+          </div>
+          <!--cards4-->
+          <div class="card">
+            <img class="card-img" src="./assets/trippie.png">
+            <p class="card-title">trippie redd dark knight dummo...</p>
+            <p class="card-info">Mar 2024 . 5 min</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+          <!--cards5-->
+          <div class="card">
+            <img class="card-img" src="./assets/Is Akhand Bharat Possible_ _ Sardar Patel _ Dhruv Rathee.png ">
+            <p class="card-title">Why did it take 56 years to build the...</p>
+            <p class="card-info">Apr 2023 . 23 min</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+          <!--cards6-->
+          <div class="card">
+            <img class="card-img" src="./assets/B.png">
+            <p class="card-title">B</p>
+            <p class="card-info">Sep 2019 . 1 min</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+          <!--cards7-->
+          <div class="card">
+            <img class="card-img"
+              src="https://images.cdn.kukufm.com/w:1200/f:webp/q:75/https://images.cdn.kukufm.com/f:webp/https://files.hubhopper.com/podcast/438441/1400x1400/the-desi-crime-podcast.png?v=1742023772">
+            <p class="card-title">138.Cyanide
+              Mallika:India's F...</p>
+            <p class="card-info">Your daily update of most played tracks...</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+          <!--cards8-->
+          <div class="card">
+            <img class="card-img" src="./assets/Monalisa.png">
+            <p class="card-title">Leave It At Eternity</p>
+            <p class="card-info">Mar 2024 . 57 min</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+        </div>
+
+        <!--Section 6-->
+        <h1>Bollywood Romance</h1>
+        <div class="cards-container">
+          <!--cards1-->
+          <div class="card">
+            <img class="card-img" src="https://i.scdn.co/image/ab67706f00000002f027af3f4e9f022e782bf903">
+            <p class="card-title">Bollywood Mush</p>
+            <p class="card-info">Let these songs be the background score to your love...</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+          <!--cards2-->
+          <div class="card">
+            <img class="card-img" src="https://i.scdn.co/image/ab67706f00000002898b6534cd1f318991043925">
+            <p class="card-title">00's Love Hits</p>
+            <p class="card-info">Fall in love with 00's Bollywood like never before!Cover -Bachn...</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+          <!--cards3-->
+          <div class="card">
+            <img class="card-img" src="https://th.bing.com/th/id/OIP.qEmWx2vWxQf6yfvIss-ENAAAAA?rs=1&pid=ImgDetMain">
+            <p class="card-title">90s Love Hits</p>
+            <p class="card-info">Let your heart sing ...</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+          <!--cards4-->
+          <div class="card">
+            <img class="card-img" src="https://i.scdn.co/image/ab67706f00000003fa6b5a04d3e878cb79760beb">
+            <p class="card-title">All out 00's hit </p>
+            <p class="card-info">Relive the biggest tracks of the history...</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Info section -->
+      <div class="info-section">
+        <div class="info-container">
+
+          <div class="info-column">
+            <h4>Company</h4>
+            <ul>
+              <li>About</li>
+              <li>Jobs</li>
+              <li>For the Record</li>
+            </ul>
+          </div>
+
+          <div class="info-column">
+            <h4>Communities</h4>
+            <ul>
+              <li>For Artists</li>
+              <li>Developers</li>
+              <li>Advertising</li>
+              <li>Investors</li>
+              <li>Vendors</li>
+            </ul>
+          </div>
+
+          <div class="info-column">
+            <h4>Useful Links</h4>
+            <ul>
+              <li>Support</li>
+              <li>Free Mobile App</li>
+            </ul>
+          </div>
+
+          <div class="info-column">
+            <h4>Spotify Plans</h4>
+            <ul>
+              <li>Premium Individual</li>
+              <li>Premium Duo</li>
+              <li>Premium Family</li>
+              <li>Premium Student</li>
+              <li>Spotify Free</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Social media platform section --> 
+      <div class="social-media">
+        
+          <i class="fab fa-instagram"></i>
+            <i class="fab fa-twitter"></i> 
+              <i class="fab fa-facebook-f"></i> 
+
+      </div>
+
+
+
+      <!--Footer section-->
+      <div class="footer">
+        <div class="line"></div>
+        <p> © 2025 Spotify AB</p>
+
+      </div>
+    </div>
+
+
+    <!-- /* music player section*/ -->
+
+  </div>
+  <div class="music-player">
+    <!--album-->
+    <div class="album" id="recently-played">
+      <img src="./assets/mismatch.png" class="album-img">
+      <div class="song-name">
+      <p class="name1">Ishq Hai</p>
+      <p class="name2">Arijit Singh,Anurag Saikia,Varun Jain...</p>
+      
+    </div>
+    <i class="fa-solid fa-circle-plus  plus-icon"></i>
+    </div>
+    
+    <!--player-->
+    <div class="player">
+      
+      <div class="player-ctrls">
+        <div class="text" style="left:0"></div>
+        
+        <img class="player-ctrl-icon shuffle-button " src="./assets/player_icon1.png">
+        <img class="player-ctrl-icon previous-button" src="./assets/player_icon2.png">
+        <img class="player-ctrl-icon play-button" src="./assets/pause button.jpeg" style="opacity: 1; height: 2.5rem;">
+        <img class="player-ctrl-icon next-button" src="./assets/player_icon4.png">
+        <img class="player-ctrl-icon repeat-button" src="./assets/player_icon5.png">
+      </div>
+      <div class="songtime"></div>
+      <div class="playbackBar">
+         <div class="circle"></div>
+         <p class="duration"></p>
+        </div>
+      
+    </div>
+    <audio src="songs/04. Sorry.mp3" id="audio"></audio>
+
+    <!--controls-->
+    <div class="controls">
+ 
+      <img src="./assets/controls_icon5.png " class="ctrl-img volume-button" style="height:60px;">
+
+      <input type="range" min="0" max="100" step="1" class="voulume-bar" style="width: 45%;height:6px;">
+      <img src="./assets/album_icon2.png" class="ctrl-img hide-img" style="opacity: 1;padding: 0.5rem;">
+      <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
+
+
+    </div>
+  </div>
+  </div>
+  </div>
+  </div> 
+
+  <script src="script.js"></script>
+</body>
+
+</html>
