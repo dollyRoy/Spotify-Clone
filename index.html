@@ -24,11 +24,14 @@
 
 <body>
   <div class="main">
+
     <div class="sidebar">
       <div class="nav">
       
         
-      
+      <div class="close">
+        <i class="fa-solid fa-xmark"></i>
+      </div>
         <div class="nav-option" id="nav-logo">
           <i class="fa-solid fa-house"></i> <!-- Correct class -->
           Home
@@ -55,13 +58,13 @@
           <div class="box">
             <p class="box-p1">Create your first playlist</p>
             <p class="box-p2">It's easy we'll help you</p>
-            <button class="badge">Create playlist</button>
+            <button class="badge theme-badge">Create playlist</button>
           </div>
           <div class="lib-box">
             <div class="box">
               <p class="box-p1">Let's find some podcasts to follow</p>
               <p class="box-p2">We'll keep you updated on new episodes</p>
-              <button class="badge">Browse podcasts</button>
+              <button class="badge theme-badge">Browse podcasts</button>
             </div>
           </div>
         </div>
@@ -71,18 +74,9 @@
         <h1>Song List</h1>
         <div class="song-list">
           <ul>
-            <!-- Songs will be added dynamically via JS -->
+            
           </ul>
         </div>
-
-        <!-- </div> -->
-
-
-        <!-- <div class="language-section">
-          <button class="language-btn">
-            <i class="fa-solid fa-globe"></i> English
-          </button>
-        </div> -->
 
       </div>
     </div>
@@ -96,8 +90,17 @@
       <div class="sticky-nav">
   
         <div class="sticky-nav-icons">
-          <img src="./assets/backward_icon.png">
-          <img src="./assets/forward_icon.png">
+             <label for="themeSelect"></label>
+<div class="theme-wrapper">
+  <select id="themeSelect">
+  <option value="default">Light (Default)</option>
+  <option value="dark">Dark / Night</option>
+  <option value="calm">Calm (Soft Blue)</option>
+  <option value="energetic">Energetic (Warm Orange)</option>
+  <!-- <option value="forest">Romantic</option> -->
+  <option value="lofi">Romantic</option>
+</select>
+</div>
         </div>
           <div class="hamburger">
             <i class="fa-solid fa-bars"></i>
@@ -111,26 +114,16 @@
         </div>
         <div class="sticky-nav-options">
 
-          <button class="badge nav-item  hide">Explore premium</button>
-          <button class="badge nav-item dark-badge"><i class="fa-regular fa-circle-down" style=""></i> Install app
+          <button class="badge nav-item hide">Explore premium</button>
+          <button class="badge nav-item dark-badge"><i class="fa-regular fa-circle-down"></i> Install app
           </button>
           <!-- Profile Section -->
-          <span id="profileName" style="cursor: pointer;" onclick="redirectToLogin()" style="border-radius: 50%;">
-            Profile
-          </span>
+          <button class="profile"><i class="fa-regular fa-user nav-item"></i></button>
           <!-- <i class="fa-regular fa-user nav-item"></i> -->
+          <!-- Adding a new section  -->
 
 
 
-          <script>
-            // Check if user is logged in
-            const user = localStorage.getItem('spotifyUser');
-
-            if (user) {
-              document.getElementById('profileName').innerText = user;
-            }
-          </script>
-          <i class="fa-regular fa-user nav-item"></i>
         </div>
       </div>
       <!-- /* cards section*/ -->
@@ -138,35 +131,22 @@
       <!--Section-1-->
 
 
-      <div class="scroll-wrapper">
-        
-        <div class="cards-container">
-          <!-- <div class="card">
-            <img class="card-img" src="./assets/card1img.jpeg">
-            <p class="card-title">Top 50-Global</p>
-            <p class="card-info">Your daily update of most played tracks...</p>
-          </div> -->
-          <h1>Recently Played</h1>
-          <div class="cards-container" id="recently-played">
-            <!-- Cards will be added here dynamically -->
-          </div>
-
-        </div>
+      <div class="scroll-wrapper"> 
         <!--Popular artists-->
 
         <h1>Popular artists</h1>
         <!--cards1-->
         <div class="cards-container">
-          <div class="card">
+          <div  class="card" data-folder="Honey">
             <div class="artistImg">
               <img class="card-img"
-                src="https://img.discogs.com/vGsioytB0N4XeMxmyK1yYQQRT5o=/525x515/smart/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/A-3895034-1517157761-2697.jpeg.jpg"
+                src="https://th.bing.com/th/id/OIP.Af6QdEsV7W5D96Z7WAA8xAAAAA?r=0&rs=1&pid=ImgDetMain"
                 style="border-radius: 50%">
               <div class="play-btn">
                 <i class="fa-solid fa-play"></i>
               </div>
               <p class="card-title">
-              <h2>Pritam</h2>
+              <h2>Honey Singh</h2>
               </p>
               <p style="color:grey; font-size: x-large;font-weight: 900;">Artist</p>
             </div>
@@ -174,7 +154,7 @@
 
           </div>
           <!--cards2-->
-          <div class="card">
+          <div  class="card" data-folder="Arijit cs">
             <img class="card-img"
               src="https://th.bing.com/th/id/OIP.41ATLhwkn26_srtqCsCLAQHaHZ?w=181&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"
               style="border-radius:50%">
@@ -188,11 +168,11 @@
           </div>
 
           <!--cards4-->
-          <div class="card">
-            <img class="card-img" src="https://th.bing.com/th/id/OIP.iaqNrtR_sc9UthWGA0YE3QHaHa?rs=1&pid=ImgDetMain"
+          <div  class="card" data-folder="AP">
+            <img class="card-img" src="https://images.hungama.com/a/1/9b5/0ed/273435432/273435432_200x200.jpg"
               style=" border-radius: 50%;">
             <p class="card-title">
-            <h2>Sachin-Jigar</h2>
+            <h2>AP Dhillon</h2>
             </p>
             <p style="color:grey; font-size: x-large;font-weight: 900;">Artist</p>
             <div class="play-btn">
@@ -200,21 +180,21 @@
             </div>
           </div>
           <!--cards5-->
-          <div class="card">
-            <img class="card-img" src="https://th.bing.com/th/id/OIP.U9gBxdh07z-Jj0CSvKL0qgAAAA?rs=1&pid=ImgDetMain "
+          <div  class="card" data-folder="edshrn">
+            <img class="card-img" src="https://th.bing.com/th/id/OIP.pHEI5XFeRffeXcI_C2bIBQAAAA?r=0&w=434&h=434&rs=1&pid=ImgDetMain&cb=idpwebp1&o=7&rm=3"
               style=" border-radius: 50%;">
             <div class="play-btn">
               <i class="fa-solid fa-play"></i>
             </div>
             <p class="card-title">
-            <h2>Vishal Sekhar</h2>
+            <h2>ED Sheeran</h2>
             </p>
             <p style="color:grey; font-size: x-large;font-weight: 900;">Artist</p>
 
           </div>
 
           <!-- cards6 -->
-          <div class="card">
+          <div  class="card" data-folder="ShreyaG">
             <img class="card-img"
               src="https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da843f62d1e7cabffe4511903b9f"
               style=" border-radius: 50%">
@@ -228,7 +208,7 @@
 
           </div>
           <!-- card 7 -->
-          <div class="card">
+          <div  class="card" data-folder="sndhi">
             <img class="card-img" src="https://i.scdn.co/image/ab67706c0000da843531f87c8efe3761214bc0c7"
               style=" border-radius: 50%">
             <div class="play-btn">
@@ -242,20 +222,20 @@
           </div>
 
           <!-- card 8 -->
-          <div class="card">
-            <img class="card-img" src="https://i.scdn.co/image/4df9740f3f6bfcc28e9c8c57ecf4c7eda4a2e42b"
+          <div  class="card" data-folder="KK">
+            <img class="card-img" src="https://c.saavncdn.com/artists/KK_500x500.jpg"
               style=" border-radius: 50%">
             <div class="play-btn">
               <i class="fa-solid fa-play"></i>
             </div>
             <p class="card-title">
-            <h2>A.R.Rahman</h2>
+            <h2>KK</h2>
             </p>
             <p style="color:grey; font-size: x-large;font-weight: 900;">Artist</p>
 
           </div>
           <!-- card 9 -->
-          <div class="card">
+          <div  class="card" data-folder="atif">
             <img class="card-img" src="https://i.pinimg.com/736x/f5/a9/07/f5a9071d88cba9e36f5ae184cd7d885a.jpg"
               style=" border-radius: 50%">
             <div class="play-btn">
@@ -268,20 +248,7 @@
 
           </div>
           <!-- card 10 -->
-          <div class="card">
-            <img class="card-img" src="https://i.scdn.co/image/ab6761610000e5eb1dcbb331f2318db2dd2c6bcf"
-              style=" border-radius: 50%">
-            <div class="play-btn">
-              <i class="fa-solid fa-play"></i>
-            </div>
-            <p class="card-title">
-            <h2>Amit Trivedi</h2>
-            </p>
-            <p style="color:grey; font-size: x-large;font-weight: 900;">Artist</p>
-
-          </div>
-          <!-- card 11 -->
-          <div class="card">
+          <div  class="card" data-folder="plak">
             <img class="card-img" src="https://c.saavncdn.com/artists/Palak_Muchhal_002_20220825160809_500x500.jpg"
               style=" border-radius: 50%">
             <div class="play-btn">
@@ -291,10 +258,9 @@
             <h2>Palak Muchhal</h2>
             </p>
             <p style="color:grey; font-size: x-large;font-weight: 900;">Artist</p>
-
           </div>
-          <!-- card 12 -->
-          <div class="card">
+          <!-- card 11 -->
+          <div  class="card" data-folder="cs">
             <img class="card-img"
               src="https://alchetron.com/cdn/kailash-kher-156bb8af-e813-4c8e-87ad-45d63b24f3c-resize-750.jpeg"
               style=" border-radius: 50%">
@@ -305,66 +271,93 @@
             <h2>Kailash Kher</h2>
             </p>
             <p style="color:grey; font-size: x-large;font-weight: 900;">Artist</p>
-
           </div>
         </div>
-
-
-
-
         <!--Section-2-->
-
         <p class="heading">Popular albums and singles</p>
+         <!-- cards 0 -->
         <div class="cards-container">
+            <div  class="card special-card" data-song="Saiyaara Title Song ｜ Ahaan Panday, Aneet Padda ｜ Tanishk Bagchi, Faheem A, Arslan N ｜ Irshad Kamil [BSJa1UytM8w].mp3" data-image="https://bollyspice.com/wp-content/uploads/2025/07/IMG_9042-768x727.jpeg" data-title="Saiyaara Title Track" data-artist="Tanisk Bagchi, Faheem A, Arslan N">
+            <img class="card-img" src="https://bollyspice.com/wp-content/uploads/2025/07/IMG_9042-768x727.jpeg">
+            <p class="card-title">Saiyaara Title Track</p>
+            <p class="card-info">Tanisk Bagchi, Faheem A, Arslan N</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+          <!-- cards 0.1 -->
+            <div  class="card special-card" data-song="Dhun Song ｜ Saiyaara ｜ Ahaan Panday, Aneet Padda ｜ Mithoon ｜ Arijit Singh ｜ In cinemas now [cUmUOb7j3dc].mp3" data-image="https://bollyspice.com/wp-content/uploads/2025/07/IMG_9042-768x727.jpeg" data-title="Dhun Song" data-artist=" Ahaan Panday, Aneet Padda | Mithoon | Arijit Singh | ">
+            <img class="card-img" src="https://media5.bollywoodhungama.in/wp-content/uploads/2025/07/Saiyaara-1-1.jpg">
+            <p class="card-title">Dhun Song</p>
+            <p class="card-info"> Ahaan Panday, Aneet Padda | Mithoon | Arijit Singh | </p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+          <!--cards1-->
+          <div  class="card special-card" data-song="Sapphire_320(PagaiWorld.com).mp3" data-image="assets/Ed Sheeran - Sapphire (Official Music Video).jpeg" data-title="Sapphire" data-artist="Ed Sheeran,Arijit Singh"> 
+            <img class="card-img" src="assets/Ed Sheeran - Sapphire (Official Music Video).jpeg">
+            <p class="card-title">Sapphire</p>
+            <p class="card-info">Ed Sheeran,Arijit Singh</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+            <div  class="card special-card" data-song="Raanjhan-320kbps.mp3" data-image="https://c.saavncdn.com/915/Raanjhan-From-Do-Patti-Hindi-2024-20241004153945-500x500.jpg" data-title="Raanjhan (From Do Patti )" data-artist="Sachet-Parampara tandon,..">
+            <img class="card-img" src="https://c.saavncdn.com/915/Raanjhan-From-Do-Patti-Hindi-2024-20241004153945-500x500.jpg">
+            <p class="card-title">Raanjhan (From Do Patti )</p>
+            <p class="card-info">Sachet-Parampara tandon,..</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
           <!--cards2-->
-          <div class="card">
-            <img class="card-img" src="https://i.scdn.co/image/ab67706f000000033d1836fec89465a2cf8eb702">
-            <p class="card-title">Bollywood Central</p>
-            <p class="card-info">Bollywood Central , jab baje toh seedha dil ke centre mein lage...</p>
-            <div class="play-btn">
-              <i class="fa-solid fa-play"></i>
-            </div>
-          </div>
-          <!--cards3-->
-          <div class="card">
+          <div  class="card special-card" data-song="Millionaire.mp3" data-image="https://i.scdn.co/image/ab67616d0000b273aad3f4b601ae8763b3fc4e88" data-title="Glory" data-artist="Yo Yo Honey Singh">
             <img class="card-img"
-              src="https://th.bing.com/th/id/OIP.2L_ZKEQe_fs_WdK5RDtmWwHaHa?w=179&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7">
-            <p class="card-title">"Bass itni tez ki mohalla hil jaaye!"</p>
-            <p class="card-info">Latest music from your fav |
-              Cover — Beat Baba & Shakira Bhabhi 😎...</p>
+              src="https://i.scdn.co/image/ab67616d0000b273aad3f4b601ae8763b3fc4e88">
+            <p class="card-title">"Glory"</p>
+            <p class="card-info">Yo Yo Honey Singh</p>
             <div class="play-btn">
               <i class="fa-solid fa-play"></i>
             </div>
           </div>
-          <!--cards4-->
-          <div class="card">
-            <img class="card-img" src="https://i.scdn.co/image/ab67706f00000002986988dda30dee0642dbd07c">
-            <p class="card-title">New in Dance</p>
-            <p class="card-info">With the desi beats & filmy vibe, the party begins with...</p>
+          <!--cards 3-->
+          <div  class="card special-card" data-song="tere sang yara Rustom.mp3" data-image="https://c.saavncdn.com/221/Rustom-Hindi-2018-20191029174008-500x500.jpg" data-title="Tere Sang Yaara" data-artist="Atif Aslam, Manoj Munstasir">
+            <img class="card-img" src="https://c.saavncdn.com/221/Rustom-Hindi-2018-20191029174008-500x500.jpg">
+            <p class="card-title">Tere Sang Yaara</p>
+            <p class="card-info">Atif Aslam, Manoj Munstasir</p>
             <div class="play-btn">
               <i class="fa-solid fa-play"></i>
             </div>
           </div>
-          <!--cards5-->
-          <div class="card">
-            <img class="card-img" src="https://i.scdn.co/image/ab67706f00000002cd463a1e3778993ca3976e42">
-            <p class="card-title">Latest Love Tunes</p>
-            <p class="card-info">Step into a magical world of love with these mushy songs...</p>
+          <!--cards 4-->
+          <div  class="card special-card" data-song="Finding_Her_Kushagra_Bharath_mp3_song_download.mp3" data-image="https://a10.gaanacdn.com/gn_img/albums/Oxd3xzPbgV/d3xDo1oE3g/size_m_1735999419.jpg" data-title="Finding Her" data-artist="Kushagra Bharath Saaheel...">
+            <img class="card-img" src="https://a10.gaanacdn.com/gn_img/albums/Oxd3xzPbgV/d3xDo1oE3g/size_m_1735999419.jpg">
+            <p class="card-title">Finding Her</p>
+            <p class="card-info">Kushagra Bharath Saaheel...</p>
             <div class="play-btn">
               <i class="fa-solid fa-play"></i>
             </div>
           </div>
-          <!--cards6-->
-          <div class="card">
-            <img class="card-img" src="https://i.scdn.co/image/ab67706f0000000307c006b2a2f49ecf1997e046">
-            <p class="card-title">New Rap Hindi</p>
-            <p class="card-info">Naya Hip-Hop Hindi! Cover: panther...</p>
+            <div  class="card special-card" data-song="With You - SirfJatt.Com.mp3" data-image="https://images.genius.com/d8eff2b3cd460a15929561ea14ef7f0a.1000x1000x1.jpg" data-title="With You" data-artist="Song. AP Dhillon">
+            <img class="card-img" src="https://images.genius.com/d8eff2b3cd460a15929561ea14ef7f0a.1000x1000x1.jpg">
+            <p class="card-title">With You</p>
+            <p class="card-info"><h3>Song. AP Dhillon</h3></p>
             <div class="play-btn">
               <i class="fa-solid fa-play"></i>
-            </div>
+            </div >
           </div>
-          <!--cards7-->
-          <div class="card">
+          <!--cards 5-->
+          <div  class="card special-card" data-song="Soch Na Sake From Airlift-320kbps.mp3" data-image="https://1.bp.blogspot.com/-poxDHFEpiAk/VqDXSAIZt_I/AAAAAAAABf8/kC9jAJI2s9A/s1600/Airlift-Poster-1-India-Release.jpg" data-title="Soach Na Sake" data-artist="Amaal Mallik, Arijit Singh, Tulsi Kumar">
+            <img class="card-img" src="https://1.bp.blogspot.com/-poxDHFEpiAk/VqDXSAIZt_I/AAAAAAAABf8/kC9jAJI2s9A/s1600/Airlift-Poster-1-India-Release.jpg">
+            <p class="card-title">Soach Na Sake</p>
+            <p class="card-info"><p>Amaal Mallik, Arijit Singh, Tulsi Kumar</p></p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div >
+          </div>
+          <!--cards 6-->
+          <div  class="card special-card" data-song="Maand - PagalWorld.mp3" data-image="https://i.scdn.co/image/ab67616d0000b273931b61b7382db17ed15e75fc" data-title="Maand" data-artist="Song . Banyan,Hassan Raheem , Rovalio...">
             <img class="card-img" src="https://i.scdn.co/image/ab67616d0000b273931b61b7382db17ed15e75fc">
             <p class="card-title">Maand</p>
             <p class="card-info">Song . Banyan,Hassan Raheem , Rovalio...</p>
@@ -372,334 +365,297 @@
               <i class="fa-solid fa-play"></i>
             </div>
           </div>
-          <!--cards8-->
-
+          <div  class="card special-card" data-song="Saanvarey_Armaan_Malik_Jahnvi_Shrimankar_Abhiruchi_Chand_mp3_song_download.mp3" data-image="https://c.saavncdn.com/125/Saanvarey-Hindi-2025-20250103140918-500x500.jpg" data-title="Saanvarey-Hindi" data-artist="Armaan Mallik| Jhanvi Shrimankar| Abhiruchi Chand...">
+            <img class="card-img" src="https://c.saavncdn.com/125/Saanvarey-Hindi-2025-20250103140918-500x500.jpg">
+            <p class="card-title">Saanvarey-Hindi</p>
+            <p class="card-info">Armaan Mallik| Jhanvi Shrimankar| Abhiruchi Chand...</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
         </div>
 
-        <p class="heading">Recommended Today</p>
+         <!-- Second section for single songs -->
+          <h1>Trending On Instagram</h1>
+          <div class="cards-container">
+          <!--cards 1-->
+          <div  class="card special-card" data-song="Ek Number Tuzi Kambar - PagalWorld.mp3" data-image="assets/Shaky Song , Sanju Rathod.jpeg" data-title="Shaky" data-artist="Sanju Rathode">
+            <img class="card-img" src="assets/Shaky Song , Sanju Rathod.jpeg">
+            <p class="card-title">Shaky</p>
+            <p class="card-info">Sanju Rathode</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+          <!--cards 2-->
+          <div  class="card special-card" data-song="Ishq Hai - PagalWorld.mp3" data-image="assets/mismatched.jpg.jpg" data-title="Ishq Hai" data-artist="Mismatched 3">
+            <img class="card-img" src="assets/mismatched.jpg.jpg">
+            <p class="card-title">Ishq Hai</p>
+            <p class="card-info">Mismatched 3...</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+              <!--cards 3-->
+              <div  class="card special-card" data-song="Run It Up - PagalMass.mp3 songs/Waka Waka.mp3 songs/Pretty Little Baby - PagalWorld.mp3" data-image="https://images.genius.com/cd40b973718c78d5839e9390b0c96e8a.1000x1000x1.jpg" data-title="Run It Up" data-artist="Atif Aslam, Manoj Munstasir?">
+                <img class="card-img" src="https://images.genius.com/cd40b973718c78d5839e9390b0c96e8a.1000x1000x1.jpg">
+                <p class="card-title">Run It Up</p>
+                <p class="card-info">Humankind</p>
+                <div class="play-btn">
+                  <i class="fa-solid fa-play"></i>
+                </div>
+              </div>
+              <!--cards 5-->
+              <div  class="card special-card" data-song="Waka Waka.mp3" data-image="https://pbs.twimg.com/tweet_video_thumb/FzZfFBtWYAArsLg.jpg" data-title="Waka Waka" data-artist="Shakira Tsamania Stdil Music Entertainment M1">
+                <img class="card-img" src="https://pbs.twimg.com/tweet_video_thumb/FzZfFBtWYAArsLg.jpg">
+                <p class="card-title">Waka Waka</p>
+                <p class="card-info">Shakira Tsamania Stdil Music Entertainment M1</p>
+                <div class="play-btn">
+                  <i class="fa-solid fa-play"></i>
+                </div>
+              </div>
+              <!--cards 7-->
+              <div  class="card special-card" data-song="Tauba Tauba - Karan Aujla - Pagallworld.com.mp3" data-image="https://images.genius.com/bc27299c050b02ba379f03f9727eded0.1000x1000x1.png" data-title="Tauba Tauba (From "BadNewz")" data-artist="Karan Ahuja">
+                <img class="card-img" src="https://images.genius.com/bc27299c050b02ba379f03f9727eded0.1000x1000x1.png">
+                <p class="card-title">Tauba Tauba (From "BadNewz")</p>
+                <p class="card-info"><p>Karan Ahuja</p></p>
+                <div class="play-btn">
+                  <i class="fa-solid fa-play"></i>
+                </div >
+              </div>
+              <!--cards 8-->
+              <div  class="card special-card" data-song="Uyi Amma - Azaad , Rasha Thadani.mp3" data-image="https://i.scdn.co/image/ab67616d0000b273ff602926eb81f594fc034034" data-title="Uyi Amma From Aazaad" data-artist="Connie Francis">
+                <img class="card-img" src="https://i.scdn.co/image/ab67616d0000b273ff602926eb81f594fc034034">
+                <p class="card-title">Uyi Amma From Azaad</p>
+                <p class="card-info">Amit Trivedi, Madhubanti Bagchi, Amitabh Bhattacharya</p>
+                <div class="play-btn">
+                  <i class="fa-solid fa-play"></i>
+                </div>
+              </div>
+              <div  class="card special-card" data-song="Pasoori Song by Ali Sethi, Shae Gill - Pagallworld.com.mp3" data-image="https://th.bing.com/th/id/OIP.WblVkZijXLoACWIvxmDnBAHaHa?r=0&rs=1&pid=ImgDetMain" data-title="Pasoori" data-artist="Ali Sethi, Shae Gill">
+                <img class="card-img" src="https://th.bing.com/th/id/OIP.WblVkZijXLoACWIvxmDnBAHaHa?r=0&rs=1&pid=ImgDetMain">
+                <p class="card-title">Pasoori</p>
+                <p class="card-info">Ali Sethi, Shae Gill</p>
+                <div class="play-btn">
+                  <i class="fa-solid fa-play"></i>
+                </div>
+              </div>
+
+        </div>
+        <!-- extra cards -->
         <div class="cards-container">
-
-          <div class="card">
-            <img class="card-img" src="https://i.scdn.co/image/ab67706f0000000278c3ea7da56f79e29f208a02">
-            <p class="card-title">Hot Hits Hindi</p>
-            <p class="card-info">Hottest Hindi music that Inidia is listening to. Cover - Stree 2</p>
+          <!--cards 1-->
+          <div  class="card special-card" data-song="Dandelions - Dandelions (128 kbps).mp3" data-image="https://a10.gaanacdn.com/images/albums/23/3290023/crop_480x480_3290023.jpg" data-title="Dandelions" data-artist="Ruth B."> 
+            <img class="card-img" src="https://a10.gaanacdn.com/images/albums/23/3290023/crop_480x480_3290023.jpg">
+            <p class="card-title">Dandelions</p>
+            <p class="card-info">Ruth B.</p>
             <div class="play-btn">
               <i class="fa-solid fa-play"></i>
             </div>
           </div>
-          <!--cards2-->
-          <div class="card">
-            <img class="card-img" src="https://i.scdn.co/image/ab67706f00000003374702be458b4953cc1f20c7">
-            <p class="card-title">Trending Valentine's Hits
-            </p>
-            <p class="card-info">Inida's ultimate love playlist
-              Cover - Shehesha
-            </p>
+            <div  class="card special-card" data-song="Ek Jaisa Haal Tera Mera - PagalWorld.mp3" data-image="https://c.saavncdn.com/915/Raanjhan-From-Do-Patti-Hindi-2024-20241004153945-500x500.jpg" data-title="Kasturi" data-artist="Arijit Singh, Prasad S, Kunal Vermaa">  
+            <img class="card-img" src="assets/Kasturi si hai aadat tumhari_.jpeg">
+            <p class="card-title">Kasturi</p>
+            <p class="card-info">Arijit Singh, Prasad S, Kunal Vermaa</p>
             <div class="play-btn">
               <i class="fa-solid fa-play"></i>
             </div>
           </div>
-          <!--cards3-->
-          <div class="card">
-            <img class="card-img" src="https://i.scdn.co/image/ab67706f0000000384b4f9fcc00ba3db4f05bf09">
-            <p class="card-title">Bollywood Mush</p>
-            <p class="card-info">Let these songs to be the background scor...</p>
+          <!--cards 2-->
+          <div  class="card special-card" data-song="Haan Ke Haan Song  Maharaj  A Netflix Film  Junaid, Sharvari, Sohail Sen, Monali Thakur, Kausar M - YRF.mp3" data-image="https://lh3.googleusercontent.com/I1GQ5TK0EN2W41YbO_FJu9VS91vngSEqMn1YbddRvP80sJHy4FBuU0ZzlwAswKD26YCL3vc4A4NKZgpJRg" data-title="Haan K Haan" data-artist="Sohail Sen,Monali Thakur, Kausar Munir">
+            <img class="card-img"
+              src="https://lh3.googleusercontent.com/I1GQ5TK0EN2W41YbO_FJu9VS91vngSEqMn1YbddRvP80sJHy4FBuU0ZzlwAswKD26YCL3vc4A4NKZgpJRg">
+            <p class="card-title">"Haan K Haan"</p>
+            <p class="card-info">Sohail Sen,Monali Thakur, Kausar Munir</p>
             <div class="play-btn">
               <i class="fa-solid fa-play"></i>
             </div>
           </div>
-          <!--cards4-->
-          <div class="card">
-            <img class="card-img" style=" height:fit-content;"
-              src="https://i.ytimg.com/vi/VYjKJ19bqx0/maxresdefault.jpg">
-            <p class="card-title">Happy vibes</p>
-            <p class="card-info">
-              Bright, sunny, catchy tunes put a smile on your face. Cover - Tu Jhoothi Main Makkaar...</p>
+          <!--cards 3-->
+          <div  class="card special-card" data-song="Jaan Ban Gaye [ Slowed Reverb ] - Vishal Mishra.mp3" data-image="https://1.bp.blogspot.com/-8RHDivrBxZQ/X15CC5IbevI/AAAAAAAAATU/9gONHrHICAooLFGdpKwoA9UcZrR4SvWRQCLcBGAsYHQ/s1600/jbg%2Bcp%2B%25281%2529.jpg" data-title="Jaan Ban Gaye" data-artist="Asees Kaur, Mithoon,Vishal Mishra">
+            <img class="card-img" src="https://1.bp.blogspot.com/-8RHDivrBxZQ/X15CC5IbevI/AAAAAAAAATU/9gONHrHICAooLFGdpKwoA9UcZrR4SvWRQCLcBGAsYHQ/s1600/jbg%2Bcp%2B%25281%2529.jpg">
+            <p class="card-title">Jaan Ban Gaye</p>
+            <p class="card-info">Asees Kaur, Mithoon,Vishal Mishra</p>
             <div class="play-btn">
               <i class="fa-solid fa-play"></i>
             </div>
           </div>
-          <div class="card">
-            <img class="card-img" src="https://i.scdn.co/image/ab67706f0000000278c3ea7da56f79e29f208a02">
-            <p class="card-title">Hot Hits Hindi</p>
-            <p class="card-info">Hottest Hindi music that Inidia is listening to. Cover - Stree 2</p>
+          <!--cards 4-->
+          <div  class="card special-card" data-song="Main Ishq Likhu Tujhe Ho Jaye - PagalWorld.mp3" data-image="https://a10.gaanacdn.com/gn_img/albums/ogNWkDbmXJ/NWkloxMQbm/size_m.jpg" data-title="Mai Ishq Likhu" data-artist="Faheem Abdullah">
+            <img class="card-img" src="https://a10.gaanacdn.com/gn_img/albums/ogNWkDbmXJ/NWkloxMQbm/size_m.jpg">
+            <p class="card-title">Mai Ishq Likhu</p>
+            <p class="card-info">Faheem Abdullah</p>
             <div class="play-btn">
               <i class="fa-solid fa-play"></i>
             </div>
           </div>
-          <!--cards2-->
-          <div class="card">
-            <img class="card-img" src="https://i.scdn.co/image/ab67706f00000003374702be458b4953cc1f20c7">
-            <p class="card-title">Trending Valentine's Hits
-            </p>
-            <p class="card-info">Inida's ultimate love playlist
-              Cover - Shehesha
-            </p>
+            <div  class="card special-card" data-song="Espresso - PagalWorld.mp3" data-image="https://th.bing.com/th/id/OIP.ZqJY5Pqc8y2xNkMUtBjSSQHaHa?r=0&rs=1&pid=ImgDetMain&cb=idpwebp2&o=7&rm=3" data-title="Espresso" data-artist="Sabrina Carpenter">
+            <img class="card-img" src="https://th.bing.com/th/id/OIP.ZqJY5Pqc8y2xNkMUtBjSSQHaHa?r=0&rs=1&pid=ImgDetMain&cb=idpwebp2&o=7&rm=3">
+            <p class="card-title">Espresso</p>
+            <p class="card-info"><h3>Sabrina Carpenter</h3></p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div >
+          </div>
+          <!--cards 5-->
+          <div  class="card special-card" data-song="Yeda Yung - PagalMass.mp3" data-image="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/d1/15/89/d1158923-a930-b271-3193-fd33016ff6ae/cover.jpg/800x800cc.jpg" data-title="Yeda Yung" data-artist="Yung Dsa">
+            <img class="card-img" src="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/d1/15/89/d1158923-a930-b271-3193-fd33016ff6ae/cover.jpg/800x800cc.jpg">
+            <p class="card-title">Yeda Yung</p>
+            <p class="card-info">Yung Dsa</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div >
+          </div>
+          <!--cards 6-->
+          <div  class="card special-card" data-song="Aaj Ki Raat - Stree 2 320 Kbps.mp3" data-image="https://www.sangeethe.com/assets/images/300/1721902827_aaj-ki-raat-from-stree-2.jpg" data-title="Aaj Ki Raat(From "Stree 2")" data-artist="Sachin Jigar, Madhubanti Bagchi,Divya Kumar, Amitabh Bhattacharya">
+            <img class="card-img" src="https://www.sangeethe.com/assets/images/300/1721902827_aaj-ki-raat-from-stree-2.jpg">
+            <p class="card-title">Aaj Ki Raat(From "Stree 2")</p>
+            <p class="card-info">Sachin Jigar, Madhubanti Bagchi,Divya Kumar, Amitabh Bhattacharya</p>
             <div class="play-btn">
               <i class="fa-solid fa-play"></i>
             </div>
           </div>
-          <!--cards3-->
-          <div class="card">
-            <img class="card-img" src="https://i.scdn.co/image/ab67706f0000000384b4f9fcc00ba3db4f05bf09">
-            <p class="card-title">Bollywood Mush</p>
-            <p class="card-info">Let these songs to be the background scor...</p>
-            <div class="play-btn">
-              <i class="fa-solid fa-play"></i>
-            </div>
-          </div>
-          <!--cards4-->
-          <div class="card">
-            <img class="card-img" style=" height:fit-content;"
-              src="https://i.ytimg.com/vi/VYjKJ19bqx0/maxresdefault.jpg">
-            <p class="card-title">Happy vibes</p>
-            <p class="card-info">
-
-              Bright, sunny, catchy tunes put a smile on your face. Cover - Tu Jhoothi Main Makkaar...</p>
-            <div class="play-btn">
-              <i class="fa-solid fa-play"></i>
-            </div>
-          </div>
-          <div class="card">
-            <img class="card-img" src="https://i.scdn.co/image/ab67706f0000000384b4f9fcc00ba3db4f05bf09">
-            <p class="card-title">Bollywood Mush</p>
-            <p class="card-info">Let these songs to be the background scor...</p>
-            <div class="play-btn">
-              <i class="fa-solid fa-play"></i>
-            </div>
-          </div>
-          <!--cards4-->
-          <div class="card">
-            <img class="card-img" style=" height:fit-content;"
-              src="https://i.ytimg.com/vi/VYjKJ19bqx0/maxresdefault.jpg">
-            <p class="card-title">Happy vibes</p>
-            <p class="card-info">
-
-              Bright, sunny, catchy tunes put a smile on your face. Cover - Tu Jhoothi Main Makkaar...</p>
-            <div class="play-btn">
-              <i class="fa-solid fa-play"></i>
-            </div>
-          </div>
-          <div class="card">
-            <img class="card-img" src="https://i.scdn.co/image/ab67706f0000000384b4f9fcc00ba3db4f05bf09">
-            <p class="card-title">Bollywood Mush</p>
-            <p class="card-info">Let these songs to be the background scor...</p>
-            <div class="play-btn">
-              <i class="fa-solid fa-play"></i>
-            </div>
-          </div>
-          <!--cards4-->
-          <div class="card">
-            <img class="card-img" style=" height:fit-content;"
-              src="https://i.ytimg.com/vi/VYjKJ19bqx0/maxresdefault.jpg">
-            <p class="card-title">Happy vibes</p>
-            <p class="card-info">
-
-              Bright, sunny, catchy tunes put a smile on your face. Cover - Tu Jhoothi Main Makkaar...</p>
+          <div  class="card special-card" data-song="Apna Bana Le - (Raag.Fm).mp3" data-image="https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/2e/0b/c0/2e0bc070-112f-a827-6ad8-6bc64f7caaff/840214460180.png/1200x1200bf-60.jpg" data-title="Apna Bana Le" data-artist="Sachin-Jigar,Arijit Singh, Amitabh Bhattacharya">
+            <img class="card-img" src="https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/2e/0b/c0/2e0bc070-112f-a827-6ad8-6bc64f7caaff/840214460180.png/1200x1200bf-60.jpg">
+            <p class="card-title">Apna Bana Le</p>
+            <p class="card-info">Sachin-Jigar,Arijit Singh, Amitabh Bhattacharya</p>
             <div class="play-btn">
               <i class="fa-solid fa-play"></i>
             </div>
           </div>
         </div>
+        <!-- more extra cards -->
+         <div class="cards-container">
+          <!--cards 1-->
+          <div  class="card special-card" data-song="Khoobsurat X Kasturi - PagalWorld.mp3" data-image="https://images.genius.com/16763a1ee5336ac8a6a46ede15a83370.1000x1000x1.png" data-title="Khoobsurat X Kasturi" data-artist="Romantic Mashups">
+            
+            <img class="card-img" src="https://images.genius.com/16763a1ee5336ac8a6a46ede15a83370.1000x1000x1.png">
+            <p class="card-title">Khoobsurat X Kasturi</p>
+            <p class="card-info">Romantic Mashups</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+            <div  class="card special-card" data-song="Jhol - PagalWorld.mp3" data-image="https://i1.sndcdn.com/artworks-92ZMOtjnKHBT0Kbb-MlVKfw-t1080x1080.jpg" data-title="Jhol" data-artist="Maanu,Annural Khalid">  
+            <img class="card-img" src="https://i1.sndcdn.com/artworks-92ZMOtjnKHBT0Kbb-MlVKfw-t1080x1080.jpg">
+            <p class="card-title">Jhol</p>
+            <p class="card-info">Maanu,Annural Khalid</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+          <!--cards 2-->
+          <div  class="card special-card" data-song="Maine-Khud-Ko-De-Diya-Hai-Tujhko.mp3" data-image="https://i1.sndcdn.com/artworks-000072170346-hpxgw7-t500x500.jpg" data-title="Maine Khud Ko" data-artist="Ragini MMS 2">
+            <img class="card-img"
+              src="https://i1.sndcdn.com/artworks-000072170346-hpxgw7-t500x500.jpg">
+            <p class="card-title">"Maine Khud Ko"</p>
+            <p class="card-info">Ragini MMS 2</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+          <!--cards 3-->
+          <div  class="card special-card" data-song="Dekho Na Dekho Na Zulfon Se - PagalWorld.mp3" data-image="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/cd/df/37/cddf37f9-9794-175e-d68f-272c8a3853b2/24UMGIM79558.rgb.jpg/1200x1200bf-60.jpg" data-title="Jo Tum Mere Ho" data-artist="Anuv Jain">
+            <img class="card-img" src="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/cd/df/37/cddf37f9-9794-175e-d68f-272c8a3853b2/24UMGIM79558.rgb.jpg/1200x1200bf-60.jpg">
+            <p class="card-title">Jo Tum Mere Ho</p>
+            <p class="card-info">Anuv Jain</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+          <!--cards 4-->
+          <div  class="card special-card" data-song="vaaroon.opus" data-image="https://i0.wp.com/www.smartprix.com/bytes/wp-content/uploads/2022/11/05ad1d12091d3d56332ed6dcbf5d2f3c3a7c084fd47d610f55d2725adbead01b._RI_V_TTW_.jpg?ssl=1&quality=80&w=f" data-title="Vaaroon" data-artist="Anand Bhaskar,Ronny,Ginny Diwan">
+            <img class="card-img" src="https://wallpaperaccess.com/full/4246341.jpg">
+            <p class="card-title">Vaaroon</p>
+            <p class="card-info">Anand Bhaskar,Ronny,Ginny Diwan</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+            <div  class="card special-card" data-song="jisko jo v milta hai.opus" data-image="https://lh3.googleusercontent.com/FFqyq9VyLUnK6e4ni4vrs_jV0Wo-JYrG0cYgvz_lREdlUTlakwJcvHtRayyeBuGEPRnmMpUcgRyB7futHg=w544-h544-l90-rj" data-title="Jisko Jo V Milta hai" data-artist="Instagram Trending">
+            <img class="card-img" src="https://lh3.googleusercontent.com/FFqyq9VyLUnK6e4ni4vrs_jV0Wo-JYrG0cYgvz_lREdlUTlakwJcvHtRayyeBuGEPRnmMpUcgRyB7futHg=w544-h544-l90-rj">
+            <p class="card-title">Jisko Jo V Milta hai</p>
+            <p class="card-info"><h3>Instagram Trending</h3></p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div >
+          </div>
+          <!--cards 6-->
+          <div  class="card special-card" data-song="Dariya.mp3" data-image="https://www.iwmbuzz.com/wp-content/uploads/2022/09/sidharth-malhotra-and-katrina-kaif-starrer-baar-baar-dekho-completes-six-years-today-2.jpg" data-title="Dariya" data-artist="Arko">
+            <img class="card-img" src="https://www.iwmbuzz.com/wp-content/uploads/2022/09/sidharth-malhotra-and-katrina-kaif-starrer-baar-baar-dekho-completes-six-years-today-2.jpg">
+            <p class="card-title">Dariya</p>
+            <p class="card-info">Arko</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div >
+          </div>
+          <!--cards 7-->
+          <div  class="card special-card" data-song="Chaudhary.opus" data-image="https://c.saavncdn.com/511/Folk-Coke-Studio-MTV-Hindi-2014-20200708110142-500x500.jpg" data-title="Chaudhary" data-artist="Coke Studio">
+            <img class="card-img" src="https://c.saavncdn.com/511/Folk-Coke-Studio-MTV-Hindi-2014-20200708110142-500x500.jpg">
+            <p class="card-title">Chaudhary</p>
+            <p class="card-info">Coke Studio</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
 
-        <!--Section-3-->
-
-
-        <div class="cards-container">
-
-          <div class="card">
-            <img class="card-img" src="https://i.scdn.co/image/ab67706f0000000278c3ea7da56f79e29f208a02">
-            <p class="card-title">Hot Hits Hindi</p>
-            <p class="card-info">Hottest Hindi music that Inidia is listening to. Cover - Stree 2</p>
-            <div class="play-btn">
-              <i class="fa-solid fa-play"></i>
-            </div>
-          </div>
-          <!--cards2-->
-          <div class="card">
-            <img class="card-img" src="https://i.scdn.co/image/ab67706f00000003374702be458b4953cc1f20c7">
-            <p class="card-title">Trending Valentine's Hits
-            </p>
-            <p class="card-info">Inida's ultimate love playlist
-              Cover - Shehesha
-            </p>
-            <div class="play-btn">
-              <i class="fa-solid fa-play"></i>
-            </div>
-          </div>
-          <!--cards3-->
-          <div class="card">
-            <img class="card-img" src="https://i.scdn.co/image/ab67706f0000000384b4f9fcc00ba3db4f05bf09">
-            <p class="card-title">Bollywood Mush</p>
-            <p class="card-info">Let these songs to be the background scor...</p>
-            <div class="play-btn">
-              <i class="fa-solid fa-play"></i>
-            </div>
-          </div>
-          <!--cards4-->
-          <div class="card">
-            <img class="card-img" style=" height:fit-content;"
-              src="https://i.ytimg.com/vi/VYjKJ19bqx0/maxresdefault.jpg">
-            <p class="card-title">Happy vibes</p>
-            <p class="card-info">
-
-              Bright, sunny, catchy tunes put a smile on your face. Cover - Tu Jhoothi Main Makkaar...</p>
-            <div class="play-btn">
-              <i class="fa-solid fa-play"></i>
-            </div>
-          </div>
-          <div class="card">
-            <img class="card-img" src="https://i.scdn.co/image/ab67706f0000000278c3ea7da56f79e29f208a02">
-            <p class="card-title">Hot Hits Hindi</p>
-            <p class="card-info">Hottest Hindi music that Inidia is listening to. Cover - Stree 2</p>
-            <div class="play-btn">
-              <i class="fa-solid fa-play"></i>
-            </div>
-          </div>
-          <!--cards2-->
-          <div class="card">
-            <img class="card-img" src="https://i.scdn.co/image/ab67706f00000003374702be458b4953cc1f20c7">
-            <p class="card-title">Trending Valentine's Hits
-            </p>
-            <p class="card-info">Inida's ultimate love playlist
-              Cover - Shehesha
-            </p>
-            <div class="play-btn">
-              <i class="fa-solid fa-play"></i>
-            </div>
-          </div>
-          <!--cards3-->
-          <div class="card">
-            <img class="card-img" src="https://i.scdn.co/image/ab67706f0000000384b4f9fcc00ba3db4f05bf09">
-            <p class="card-title">Bollywood Mush</p>
-            <p class="card-info">Let these songs to be the background scor...</p>
-            <div class="play-btn">
-              <i class="fa-solid fa-play"></i>
-            </div>
-          </div>
-          <!--cards4-->
-          <div class="card">
-            <img class="card-img" style=" height:fit-content;"
-              src="https://i.ytimg.com/vi/VYjKJ19bqx0/maxresdefault.jpg">
-            <p class="card-title">Happy vibes</p>
-            <p class="card-info">
-
-              Bright, sunny, catchy tunes put a smile on your face. Cover - Tu Jhoothi Main Makkaar...</p>
-            <div class="play-btn">
-              <i class="fa-solid fa-play"></i>
-            </div>
-          </div>
-          <div class="card">
-            <img class="card-img" src="https://i.scdn.co/image/ab67706f0000000384b4f9fcc00ba3db4f05bf09">
-            <p class="card-title">Bollywood Mush</p>
-            <p class="card-info">Let these songs to be the background scor...</p>
-            <div class="play-btn">
-              <i class="fa-solid fa-play"></i>
-            </div>
-          </div>
-          <!--cards4-->
-          <div class="card">
-            <img class="card-img" style=" height:fit-content;"
-              src="https://i.ytimg.com/vi/VYjKJ19bqx0/maxresdefault.jpg">
-            <p class="card-title">Happy vibes</p>
-            <p class="card-info">
-
-              Bright, sunny, catchy tunes put a smile on your face. Cover - Tu Jhoothi Main Makkaar...</p>
-            <div class="play-btn">
-              <i class="fa-solid fa-play"></i>
-            </div>
-          </div>
-          <div class="card">
-            <img class="card-img" src="https://i.scdn.co/image/ab67706f0000000384b4f9fcc00ba3db4f05bf09">
-            <p class="card-title">Bollywood Mush</p>
-            <p class="card-info">Let these songs to be the background scor...</p>
-            <div class="play-btn">
-              <i class="fa-solid fa-play"></i>
-            </div>
-          </div>
-          <!--cards4-->
-          <div class="card">
-            <img class="card-img" style=" height:fit-content;"
-              src="https://i.ytimg.com/vi/VYjKJ19bqx0/maxresdefault.jpg">
-            <p class="card-title">Happy vibes</p>
-            <p class="card-info">
-
-              Bright, sunny, catchy tunes put a smile on your face. Cover - Tu Jhoothi Main Makkaar...</p>
-            <div class="play-btn">
-              <i class="fa-solid fa-play"></i>
-            </div>
-          </div>
         </div>
-
-        <!--Section-3-->
-
-
-
-        <h1>Featured Charts</h1>
+        <!-- Lofi songs -->
+        <h1>Lo-Fi Love</h1>
         <div class="cards-container">
           <!--cards1-->
-          <div class="card">
-            <img class="card-img" src="./assets/card1img.jpeg">
-            <p class="card-title">Your weekly update of the most played track...</p>
+          <div  class="card" data-folder="lofi">
+            <img class="card-img" src="
+            https://lesfm.net/_next/image/?url=https:%2F%2Fcdn.sanity.io%2Fimages%2Fzhgxj6ko%2Fproduction%2F28e86705f63f0dd82ddcad915d839ac1ff599737-1024x1024.jpg%3Fauto%3Dformat&w=640&q=75">
+            <p class="card-title">Lofi Hits</p>
+            <p class="card-info">
+                    lofi songs hindi|Best Collection of Bollywood Lo-Fi Songs | Audio Jukebox</p>
             <div class="play-btn">
               <i class="fa-solid fa-play"></i>
             </div>
-
           </div>
           <!--cards2-->
-          <div class="card">
-            <img class="card-img" src="./assets/card6img.jpeg">
-            <!-- <p class="card-title">Top 50-Global</p> -->
-            <p style="font-size: medium;" class="card-info">Your daily update of most played tracks...</p>
+          <div  class="card special-card" data-song="Apna bana le  (Slowed _ Reverb) Ultra slow  By Arijit Singh .mp3" data-image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh0TCU-JV4jryaBhVovsAq1ED2MrjAEvcrxvASd0mjAvlWAavUkaRzSCJf6CrDBPM5XEySzCqrYVSXdF8cXOm6xQvgOVHeE8dz3VRIbg09mcKeMufXkLweUbgBObeLyf9K8_NO0dhfzhp_gfvQLZnEnXdrpjjtKSrXeAWe1GgXR2XsRZiM3pZ2Rjm-OyA/s1600/apna%20bana%20le.jpg" data-title="Apna Bana Le 💜 " data-artist="Slowed And Reverb -(Arijit Singh)">
+            <img class="card-img" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh0TCU-JV4jryaBhVovsAq1ED2MrjAEvcrxvASd0mjAvlWAavUkaRzSCJf6CrDBPM5XEySzCqrYVSXdF8cXOm6xQvgOVHeE8dz3VRIbg09mcKeMufXkLweUbgBObeLyf9K8_NO0dhfzhp_gfvQLZnEnXdrpjjtKSrXeAWe1GgXR2XsRZiM3pZ2Rjm-OyA/s1600/apna%20bana%20le.jpg">
+            <p class="card-title">Apna Bana Le 💜 </p>
+            <p class="card-info">Slowed And Reverb -(Arijit Singh)</p>
             <div class="play-btn">
               <i class="fa-solid fa-play"></i>
             </div>
           </div>
           <!--cards3-->
-          <div class="card">
-            <img class="card-img" src="https://i.scdn.co/image/ab67706c0000da845b50e1d3f99a313825abd9f0">
-            <p style="font-size: medium;" class="card-info">Your daily update of most viral tracks right...</p>
+          <div  class="card special-card" data-song="Jaan Ban Gaye [ Slowed Reverb ] - Vishal Mishra.mp3" data-image="https://source.boomplaymusic.com/group10/M00/10/14/71cdf3b67c244f7da1f9183272e2efb3_464_464.jpg" data-title="Jaan Ban Gaye💜  " data-artist="Slowed And Reverb Lofi  - Vishal Mishra">
+            <img class="card-img" src="https://source.boomplaymusic.com/group10/M00/10/14/71cdf3b67c244f7da1f9183272e2efb3_464_464.jpg">
+            <p class="card-title">Jaan Ban Gaye💜 </p>
+            <p class="card-info">Slowed And Reverb Lofi  - Vishal Mishra</p>
             <div class="play-btn">
               <i class="fa-solid fa-play"></i>
             </div>
           </div>
           <!--cards4-->
-          <div class="card">
-            <img class="card-img"
-              src="https://charts-images.scdn.co/assets/locale_en/viral/daily/region_bg_default.jpg">
-            <p class="card-title">Viral Top-50</p>
-            <p style="font-size: medium;" class="card-info">Your daily update of most played track...</p>
+          <div  class="card special-card" data-song="Pee Loon (slowed reverb)(MP3_320K).mp3" data-image="https://lh3.googleusercontent.com/kBZ6QWh2p5tP_q_1mYjsYCRJcS1_A21pjajyhMwxLTHO3dITfDnG90A77rjgyvtyrKTpmTXevm0KJ72x" data-title="Pee Loon" data-artist="Slowed And Reverb Lofi">
+            <img class="card-img" src="https://lh3.googleusercontent.com/kBZ6QWh2p5tP_q_1mYjsYCRJcS1_A21pjajyhMwxLTHO3dITfDnG90A77rjgyvtyrKTpmTXevm0KJ72x">
+            <p class="card-title">Pee Loon </p>
+            <p class="card-info">Slowed And Reverb Lofi</p>
             <div class="play-btn">
               <i class="fa-solid fa-play"></i>
             </div>
           </div>
           <!--cards5-->
-          <div class="card">
-            <img class="card-img" src="assets/card5img.jpeg">
-            <p style="font-size: medium;" class="card-info">Your weekly update of most viral tracks right...</p>
+          <div  class="card special-card" data-song="Teri Ore (Slowed Reverb) - Rahat Fateh Ali __ Shreya Ghoshal __ Full Lofi Song ___goldenmusic14__.mp3" data-image="https://lh3.googleusercontent.com/a4ATC8U5N1_PKxNdjS1vNnZjSDA9EXbPv_jidZDLnz7dFFZhMe4KtxO04GWAa5wvRguW7uDtSbIkqEYr" data-title="Pee Loon" data-artist="Slowed And Reverb Lofi">
+            <img class="card-img" src="https://lh3.googleusercontent.com/a4ATC8U5N1_PKxNdjS1vNnZjSDA9EXbPv_jidZDLnz7dFFZhMe4KtxO04GWAa5wvRguW7uDtSbIkqEYr">
+            <p class="card-title">Teri Ore</p>
+            <p class="card-info">(Slowed Reverb) - Rahat Fateh Ali|Shreya Ghoshal</p>
             <div class="play-btn">
               <i class="fa-solid fa-play"></i>
             </div>
           </div>
-
         </div>
-        <!--Section-2-->
-
-
-        <!--Section 4-->
-        <h1>Fresh new music</h1>
-        <!--cards1-->
+        <!-- Recommended Today -->
+        <p class="heading">Recommended Today</p>
         <div class="cards-container">
-          <div class="card">
-            <img class="card-img" src="https://i.scdn.co/image/ab67706f0000000278c3ea7da56f79e29f208a02">
-            <p class="card-title">Hot Hits Hindi</p>
-            <p class="card-info">Hottest Hindi music that Inidia is listening to. Cover - Stree 2</p>
-            <div class="play-btn">
-              <i class="fa-solid fa-play"></i>
-            </div>
-          </div>
-          <!--cards2-->
-          <div class="card">
+          <!-- card 1 -->
+          <div  class="card" data-folder="romantic">
             <img class="card-img" src="https://i.scdn.co/image/ab67706f00000003374702be458b4953cc1f20c7">
             <p class="card-title">Trending Valentine's Hits
             </p>
@@ -710,8 +666,57 @@
               <i class="fa-solid fa-play"></i>
             </div>
           </div>
-          <!--cards3-->
-          <div class="card">
+          <!-- card 2 -->
+          <div  class="card" data-folder="bj">
+            <img class="card-img" src="https://c.saavncdn.com/569/Maroon-Color-Sadiya-From-Fasal-Bhojpuri-2024-20240311190717-500x500.jpg">
+            <p class="card-title">Best Bhojpuri Hits</p>
+            <p class="card-info">Trending Songs On Bhojpuri</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+          <!--cards 3-->
+          <div  class="card" data-folder="Bhajan Aur Bhakti">
+            <img class="card-img" src="https://th.bing.com/th/id/OIP.bh30lhLe01mW1ipyYaTG6gHaHX?r=0&rs=1&pid=ImgDetMain&cb=idpwebp1&o=7&rm=3">
+            <p class="card-title">Bhajan Aur Bhakti</p>
+            </p>
+            <p class="card-info">Din ki shuruaat bhakti aur bhajan ke saath karein. Cover - Bhajan Aur Bhakti</p>
+            </p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+          <!--cards 4-->
+          <div  class="card" data-folder="dp">
+            <img class="card-img" src="https://a10.gaanacdn.com/images/albums/95/1526795/crop_480x480_1526795.jpg">
+            <p class="card-title">Durga Puja</p>
+            <p class="card-info">Best Bengali Dugra Puja Songs</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+          <!--cards 5-->
+          <div  class="card" data-folder="punjabi">
+            <img class="card-img" style=" height:fit-content;"
+              src="https://c.saavncdn.com/editorial/PunjabiHipHop_20221209071419_500x500.jpg">
+            <p class="card-title">Punjabi Popular Hit Songs</p>
+            <p class="card-info">
+              By Spotify</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+          <!--cards 6-->
+          <div  class="card" data-folder="fp">
+            <img class="card-img" src="https://is1-ssl.mzstatic.com/image/thumb/Music1/v4/6d/31/e1/6d31e1af-2d1d-d116-db0c-286bf98983f8/cover.jpg/1200x1200bf-60.jpg">
+            <p class="card-title">Best Of Falguni Pathak</p>
+            <p class="card-info">Popular Songs Of Falguni Pathak</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+          <!--cards 5-->
+          <div  class="card" data-folder="romantic">
             <img class="card-img" src="https://i.scdn.co/image/ab67706f0000000384b4f9fcc00ba3db4f05bf09">
             <p class="card-title">Bollywood Mush</p>
             <p class="card-info">Let these songs to be the background scor...</p>
@@ -719,186 +724,124 @@
               <i class="fa-solid fa-play"></i>
             </div>
           </div>
-          <!--cards4-->
-          <div class="card">
-            <img class="card-img" style=" height:fit-content;"
-              src="https://i.ytimg.com/vi/VYjKJ19bqx0/maxresdefault.jpg">
-            <p class="card-title">Happy vibes</p>
-            <p class="card-info">
-
-              Bright, sunny, catchy tunes put a smile on your face. Cover - Tu Jhoothi Main Makkaar...</p>
-            <div class="play-btn">
-              <i class="fa-solid fa-play"></i>
-            </div>
-          </div>
-          <div class="card">
-            <img class="card-img" src="https://i.scdn.co/image/ab67706f0000000278c3ea7da56f79e29f208a02">
-            <p class="card-title">Hot Hits Hindi</p>
-            <p class="card-info">Hottest Hindi music that Inidia is listening to. Cover - Stree 2</p>
-            <div class="play-btn">
-              <i class="fa-solid fa-play"></i>
-            </div>
-          </div>
-          <!--cards2-->
-          <div class="card">
-            <img class="card-img" src="https://i.scdn.co/image/ab67706f00000003374702be458b4953cc1f20c7">
-            <p class="card-title">Trending Valentine's Hits
-            </p>
-            <p class="card-info">Inida's ultimate love playlist
-              Cover - Shehesha
-            </p>
-            <div class="play-btn">
-              <i class="fa-solid fa-play"></i>
-            </div>
-          </div>
-          <!--cards3-->
-          <div class="card">
-            <img class="card-img" src="https://i.scdn.co/image/ab67706f0000000384b4f9fcc00ba3db4f05bf09">
-            <p class="card-title">Bollywood Mush</p>
-            <p class="card-info">Let these songs to be the background scor...</p>
-            <div class="play-btn">
-              <i class="fa-solid fa-play"></i>
-            </div>
-          </div>
-          <!--cards4-->
-          <div class="card">
-            <img class="card-img" style=" height:fit-content;"
-              src="https://i.ytimg.com/vi/VYjKJ19bqx0/maxresdefault.jpg">
-            <p class="card-title">Happy vibes</p>
-            <p class="card-info">
-              Bright, sunny, catchy tunes put a smile on your face. Cover - Tu Jhoothi Main Makkaar...</p>
-            <div class="play-btn">
-              <i class="fa-solid fa-play"></i>
-            </div>
-          </div>
-          <div class="card">
-            <img class="card-img" src="https://i.scdn.co/image/ab67706f0000000278c3ea7da56f79e29f208a02">
-            <p class="card-title">Hot Hits Hindi</p>
-            <p class="card-info">Hottest Hindi music that Inidia is listening to. Cover - Stree 2</p>
-            <div class="play-btn">
-              <i class="fa-solid fa-play"></i>
-            </div>
-          </div>
-          <!--cards2-->
-          <div class="card">
-            <img class="card-img" src="https://i.scdn.co/image/ab67706f00000003374702be458b4953cc1f20c7">
-            <p class="card-title">Trending Valentine's Hits
-            </p>
-            <p class="card-info">Inida's ultimate love playlist
-              Cover - Shehesha
-            </p>
-            <div class="play-btn">
-              <i class="fa-solid fa-play"></i>
-            </div>
-          </div>
-          <!--cards3-->
-          <div class="card">
-            <img class="card-img" src="https://i.scdn.co/image/ab67706f0000000384b4f9fcc00ba3db4f05bf09">
-            <p class="card-title">Bollywood Mush</p>
-            <p class="card-info">Let these songs to be the background scor...</p>
-            <div class="play-btn">
-              <i class="fa-solid fa-play"></i>
-            </div>
-          </div>
-          <!--cards4-->
-          <div class="card">
-            <img class="card-img" style=" height:fit-content;"
-              src="https://i.ytimg.com/vi/VYjKJ19bqx0/maxresdefault.jpg">
-            <p class="card-title">Happy vibes</p>
-            <p class="card-info">
-
-              Bright, sunny, catchy tunes put a smile on your face. Cover - Tu Jhoothi Main Makkaar...</p>
-            <div class="play-btn">
-              <i class="fa-solid fa-play"></i>
-            </div>
-          </div>
-
         </div>
-        <!--Section 5-->
 
-
-        <h1>Episodes for you</h1>
-        <!--cards1-->
-        <div class="cards-container">
-          <div class="card">
-            <img class="card-img" src="./assets/SACHOCHE.png">
-            <div class="play-btn">
-              <i class="fa-solid fa-play"></i>
-            </div>
-            <p class="card-title">SACOCHE simba la rue(feat.baby...</p>
-            <p class="card-info"><i class="fa-solid fa-e"></i> Mar 2024 . 3 min</p>
-
-          </div>
-          <div class="card">
-            <img class="card-img" src="https://i.scdn.co/image/ab67706f000000025656781193450d7b309e413c">
-            <p class="card-title">Lofi vibe Hindi</p>
-            <p class="card-info">Inhale & exhale to the beats of Lofi.</p>
+<!-- Dance on beats -->
+        <h1>Best Of Dance Musics</h1>
+        <div class="cards-container">        
+          <!--cards 1-->
+          <div  class="card special-card" data-song="Chal Chaiya Chaiya-Shahrukh Khan.mp3" data-image="https://radiobanglanet.com/wp-content/uploads/2018/02/dil-se-1.jpg" data-title="Chal Chaiyya Chaiyya" data-artist="Dil Se">
+            
+            <img class="card-img" src="https://radiobanglanet.com/wp-content/uploads/2018/02/dil-se-1.jpg">
+            <p class="card-title">Chal Chaiyya Chaiyya</p>
+            <p class="card-info">Dil Se</p>
             <div class="play-btn">
               <i class="fa-solid fa-play"></i>
             </div>
           </div>
-          <!--cards2-->
-          <div class="card">
-            <img class="card-img" src="https://pm1.narvii.com/5931/305067362530a7a5722bdb336344515aaf522366_hq.jpg">
-            <div class="play-btn">
-              <i class="fa-solid fa-play"></i>
-            </div>
-            <p class="card-title"> Hachiman Hikigaya's Speech...
-            </p>
-            <p class="card-info">Juun 2022 . 2 min</p>
-          </div>
-          <!--cards3-->
-          <div class="card">
-            <img class="card-img" src="./assets/stuckInARut.png">
-            <div class="play-btn">
-              <i class="fa-solid fa-play"></i>
-            </div>
-            <p class="card-title">Stuck in a rut , advice session...</p>
-            <p class="card-info">Feb 2 . 63 min</p>
-          </div>
-          <!--cards4-->
-          <div class="card">
-            <img class="card-img" src="./assets/trippie.png">
-            <p class="card-title">trippie redd dark knight dummo...</p>
-            <p class="card-info">Mar 2024 . 5 min</p>
+            <div  class="card special-card" data-song="Ek Jaisa Haal Tera Mera - PagalWorld.mp3" data-image="https://a10.gaanacdn.com/gn_img/albums/ogNWkDbmXJ/ogNWkDbmXJ/size_l.jpg" data-title="Billo Rani" data-artist="Pritam, Anand Raj Anand,Richa Sharma">
+            
+            <img class="card-img" src="https://a10.gaanacdn.com/gn_img/albums/ogNWkDbmXJ/ogNWkDbmXJ/size_l.jpg">
+            <p class="card-title">Billo Rani</p>
+            <p class="card-info">Pritam, Anand Raj Anand,Richa Sharma</p>
             <div class="play-btn">
               <i class="fa-solid fa-play"></i>
             </div>
           </div>
-          <!--cards5-->
-          <div class="card">
-            <img class="card-img" src="./assets/Is Akhand Bharat Possible_ _ Sardar Patel _ Dhruv Rathee.png ">
-            <p class="card-title">Why did it take 56 years to build the...</p>
-            <p class="card-info">Apr 2023 . 23 min</p>
+          <div  class="card special-card" data-song="Beedi-320kbps.mp3" data-image="https://i.ytimg.com/vi/rk3oEn6tQMQ/hqdefault.jpg?sqp=-oaymwEmCOADEOgC8quKqQMa8AEB-AHuAYAC8AGKAgwIABABGHIgNyg5MA8=&rs=AOn4CLB812X7xNyXmPjBqUJxp7AGaAp_Sw" data-title="Yeda Yung" data-artist="Yung Dsa">
+            <img class="card-img" src="https://i.ytimg.com/vi/rk3oEn6tQMQ/hqdefault.jpg?sqp=-oaymwEmCOADEOgC8quKqQMa8AEB-AHuAYAC8AGKAgwIABABGHIgNyg5MA8=&rs=AOn4CLB812X7xNyXmPjBqUJxp7AGaAp_Sw">
+            <p class="card-title">Beedi</p>
+            <p class="card-info">Sunidhi Chauhan,Skhwinder Singh,Nachiketa Chakraborty,Clinton Cerejo,Gulzar</p>
             <div class="play-btn">
               <i class="fa-solid fa-play"></i>
-            </div>
+            </div >
           </div>
-          <!--cards6-->
-          <div class="card">
-            <img class="card-img" src="./assets/B.png">
-            <p class="card-title">B</p>
-            <p class="card-info">Sep 2019 . 1 min</p>
-            <div class="play-btn">
-              <i class="fa-solid fa-play"></i>
-            </div>
-          </div>
-          <!--cards7-->
-          <div class="card">
+          <!--cards 2-->
+          <div  class="card special-card" data-song="Fevicol Se.mp3" data-image="https://th.bing.com/th/id/R.5a965a2803070724a88b0634b9444df6?rik=z6h0JE3mAk%2fshQ&riu=http%3a%2f%2fst1.bollywoodlife.com%2fwp-content%2fuploads%2fphotos%2f2016%2f08%2f772941.jpg&ehk=ZzkVGTECcZe7UoYebqRcpod6aAXpEe%2fY%2fXMp9h6g%2fWA%3d&risl=&pid=ImgRaw&r=0" data-title="Haan K Haan" data-artist="Sohail Sen,Monali Thakur, Kausar Munir">
             <img class="card-img"
-              src="https://images.cdn.kukufm.com/w:1200/f:webp/q:75/https://images.cdn.kukufm.com/f:webp/https://files.hubhopper.com/podcast/438441/1400x1400/the-desi-crime-podcast.png?v=1742023772">
-            <p class="card-title">138.Cyanide
-              Mallika:India's F...</p>
-            <p class="card-info">Your daily update of most played tracks...</p>
+              src="https://th.bing.com/th/id/R.5a965a2803070724a88b0634b9444df6?rik=z6h0JE3mAk%2fshQ&riu=http%3a%2f%2fst1.bollywoodlife.com%2fwp-content%2fuploads%2fphotos%2f2016%2f08%2f772941.jpg&ehk=ZzkVGTECcZe7UoYebqRcpod6aAXpEe%2fY%2fXMp9h6g%2fWA%3d&risl=&pid=ImgRaw&r=0">
+            <p class="card-title">Fevicol Se(From "Dabangg 2")</p>
+            <p class="card-info">Mamta Sharma, Wajid</p>
             <div class="play-btn">
               <i class="fa-solid fa-play"></i>
             </div>
           </div>
-          <!--cards8-->
-          <div class="card">
-            <img class="card-img" src="./assets/Monalisa.png">
-            <p class="card-title">Leave It At Eternity</p>
-            <p class="card-info">Mar 2024 . 57 min</p>
+          <!--cards 3-->
+          <div  class="card special-card" data-song="Ghagra.mp3" data-image="https://static.toiimg.com/photo/20064053.cms?imgsize=174972" data-title="Jaan Ban Gaye" data-artist="Asees Kaur, Mithoon,Vishal Mishra">
+            <img class="card-img" src="https://static.toiimg.com/photo/20064053.cms?imgsize=174972">
+            <p class="card-title">Ghagra</p>
+            <p class="card-info">Pritam,Rekha Bhardwaj,Vishal Dadlani</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+            <div  class="card special-card" data-song="Kamariya _ STREE _ Nora Fatehi _ Rajku(MP3_160K).mp3" data-image="https://www.makemykaraoke.com/images/detailed/46/Stree-Kamariya_5qdh-ad.jpg" data-title="Kamariya Stree" data-artist="Aastha Gill,sachin Sanghvi,Jigar Saraiya,Divya Kumar">
+            <img class="card-img" src="https://www.makemykaraoke.com/images/detailed/46/Stree-Kamariya_5qdh-ad.jpg">
+            <p class="card-title">Kamariya- Stree</p>
+            <p class="card-info">Aastha Gill,sachin Sanghvi,Jigar Saraiya,Divya Kumar</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+          <!--cards 4-->
+          <div  class="card special-card" data-song="GENDA PHOOL.mp3" data-image="https://a10.gaanacdn.com/gn_img/albums/a7LWBkzbzX/7LWBgE0kbz/size_m.jpg" data-title="Genda Phool" data-artist="Badshah, Payal Dev">
+            <img class="card-img" src="https://a10.gaanacdn.com/gn_img/albums/a7LWBkzbzX/7LWBgE0kbz/size_m.jpg">
+            <p class="card-title">Genda Phool</p>
+            <p class="card-info">Badshah, Payal Dev</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+          <!--cards  5-->
+          <div  class="card special-card" data-song="Pardesiya-Yeh-Sach-Hai-Piya-New-Version.mp3" data-image="https://a10.gaanacdn.com/gn_img/albums/dwN398KDPa/N39y8Oq53D/size_m.jpg" data-title="Pardesiya Yeh Sach Hai Piya (New Version)" data-artist="	Various Artist">
+            <img class="card-img" src="https://a10.gaanacdn.com/gn_img/albums/dwN398KDPa/N39y8Oq53D/size_m.jpg">
+            <p class="card-title">Pardesiya Yeh Sach Hai Piya (New Version)</p>
+            <p class="card-info">	Various Artist</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+            <!--cards 6-->
+          </div>
+            <div  class="card special-card" data-song="Mera Naam Mary From Brothers-320kbps.mp3" data-image="https://indianexpress.com/wp-content/uploads/2015/07/kareenakapoor-brothers-embed.jpg" data-title="Mera Nam Mary(From"Brothers")" data-artist="Ajay-Atul,Chinmayi">
+            <img class="card-img" src="https://indianexpress.com/wp-content/uploads/2015/07/kareenakapoor-brothers-embed.jpg">
+            <p class="card-title">Mera Nam Mary(From"Brothers")</p>
+            <p class="card-info">Ajay-Atul,Chinmayi</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div >
+          </div>
+          <!--cards 7-->
+          <div  class="card special-card" data-song="Aaj Ki Raat - Stree 2 320 Kbps.mp3" data-image="https://www.sangeethe.com/assets/images/300/1721902827_aaj-ki-raat-from-stree-2.jpg" data-title="Aaj Ki Raat(From "Stree 2")" data-artist="Sachin Jigar, Madhubanti Bagchi,Divya Kumar, Amitabh Bhattacharya">
+            <img class="card-img" src="https://www.sangeethe.com/assets/images/300/1721902827_aaj-ki-raat-from-stree-2.jpg">
+            <p class="card-title">Aaj Ki Raat(From "Stree 2")</p>
+            <p class="card-info">Sachin Jigar, Madhubanti Bagchi,Divya Kumar, Amitabh Bhattacharya</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+          <!--cards  8-->
+          <div  class="card special-card" data-song="O Saki Saki From Batla House-320kbps.mp3" data-image="https://www.prokerala.com/images/1200/nora-fatehi-1.jpg" data-title="Aaj Ki Raat(From "Stree 2")" data-artist="Sachin Jigar, Madhubanti Bagchi,Divya Kumar, Amitabh Bhattacharya">
+            <img class="card-img" src="https://www.prokerala.com/images/1200/nora-fatehi-1.jpg">
+            <p class="card-title">O Saki Saki</p>
+            <p class="card-info">Sachin Jigar, Madhubanti Bagchi,Divya Kumar, Amitabh Bhattacharya</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+          <!--cards  9-->
+          <div  class="card special-card" data-song="Do Ghoont Mujhe Bhi Pila De-320kbps.mp3" data-image="https://i.pinimg.com/736x/6c/56/e8/6c56e83e66de2350b2d052702e0cb1f6.jpg" data-title="Do Ghoont Mujhe Bhi Pila De" data-artist="Lata mangeshkar,R.D. Burman">
+            <img class="card-img" src="https://i.pinimg.com/736x/6c/56/e8/6c56e83e66de2350b2d052702e0cb1f6.jpg">
+            <p class="card-title">Do Ghoont Mujhe Bhi Pila De</p>
+            <p class="card-info">Lata mangeshkar,R.D. Burman</p>
+            <div class="play-btn">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+          <!--cards  10-->
+          <div  class="card special-card" data-song="Dilbar From Satyameva Jayate-320kbps.mp3" data-image="https://boxofficecollection.in/wp-content/uploads/2018/07/Nora-Fatehi-Next-Song-For-Nikkhil-Advani.jpg" data-title="Dilbar(From"Satyameva Jayate")" data-artist="Neha Kakkar,Dhanvi Bhanushali,Ikka,Tanishk Bagchi">
+            <img class="card-img" src="https://boxofficecollection.in/wp-content/uploads/2018/07/Nora-Fatehi-Next-Song-For-Nikkhil-Advani.jpg">
+            <p class="card-title">Dilbar(From"Satyameva Jayate")</p>
+            <p class="card-info">Neha Kakkar,Dhanvi Bhanushali,Ikka,Tanishk Bagchi</p>
             <div class="play-btn">
               <i class="fa-solid fa-play"></i>
             </div>
@@ -909,7 +852,7 @@
         <h1>Bollywood Romance</h1>
         <div class="cards-container">
           <!--cards1-->
-          <div class="card">
+          <div  class="card" data-folder="cs">
             <img class="card-img" src="https://i.scdn.co/image/ab67706f00000002f027af3f4e9f022e782bf903">
             <p class="card-title">Bollywood Mush</p>
             <p class="card-info">Let these songs be the background score to your love...</p>
@@ -918,28 +861,10 @@
             </div>
           </div>
           <!--cards2-->
-          <div class="card">
+          <div  class="card" data-folder="cs">
             <img class="card-img" src="https://i.scdn.co/image/ab67706f00000002898b6534cd1f318991043925">
             <p class="card-title">00's Love Hits</p>
             <p class="card-info">Fall in love with 00's Bollywood like never before!Cover -Bachn...</p>
-            <div class="play-btn">
-              <i class="fa-solid fa-play"></i>
-            </div>
-          </div>
-          <!--cards3-->
-          <div class="card">
-            <img class="card-img" src="https://th.bing.com/th/id/OIP.qEmWx2vWxQf6yfvIss-ENAAAAA?rs=1&pid=ImgDetMain">
-            <p class="card-title">90s Love Hits</p>
-            <p class="card-info">Let your heart sing ...</p>
-            <div class="play-btn">
-              <i class="fa-solid fa-play"></i>
-            </div>
-          </div>
-          <!--cards4-->
-          <div class="card">
-            <img class="card-img" src="https://i.scdn.co/image/ab67706f00000003fa6b5a04d3e878cb79760beb">
-            <p class="card-title">All out 00's hit </p>
-            <p class="card-info">Relive the biggest tracks of the history...</p>
             <div class="play-btn">
               <i class="fa-solid fa-play"></i>
             </div>
@@ -994,10 +919,30 @@
 
       <!-- Social media platform section --> 
       <div class="social-media">
-        
-          <i class="fab fa-instagram"></i>
+        <!-- adding dirrect link of social media handles -->
+        <a href="https://www.instagram.com/spotify/" target="_blank" rel="noopener noreferrer">
+         
+          <i class="fab fa-instagram" ></i>
+        </a>
+        <a href="https://www.youtube.com/spotify" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-youtube"></i>
+        </a>
+        <a href="https://www.linkedin.com/company/spotify/" target="_blank" rel
+="noopener noreferrer">
+
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://twitter.com/Spotify" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-x-twitter"></i>
+        </a>
+        <a href="https://www.facebook.com/Spotify" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+
+        <a href="https://www.twitter.com/Spotify" target="_blank" rel="noopener noreferrer">
             <i class="fab fa-twitter"></i> 
-              <i class="fab fa-facebook-f"></i> 
+          </a>
+   
 
       </div>
 
@@ -1024,7 +969,7 @@
       <p class="name2">Arijit Singh,Anurag Saikia,Varun Jain...</p>
       
     </div>
-    <i class="fa-solid fa-circle-plus  plus-icon"></i>
+    <i class="fa-solid fa-circle-plus plus-icon"></i>
     </div>
     
     <!--player-->
@@ -1035,25 +980,25 @@
         
         <img class="player-ctrl-icon shuffle-button " src="./assets/player_icon1.png">
         <img class="player-ctrl-icon previous-button" src="./assets/player_icon2.png">
-        <img class="player-ctrl-icon play-button" src="./assets/pause button.jpeg" style="opacity: 1; height: 2.5rem;">
+        <img class="player-ctrl-icon play-button" src="./assets/pause button.jpeg" style="opacity: 1; height: 3.5rem;">
         <img class="player-ctrl-icon next-button" src="./assets/player_icon4.png">
         <img class="player-ctrl-icon repeat-button" src="./assets/player_icon5.png">
       </div>
       <div class="songtime"></div>
       <div class="playbackBar">
          <div class="circle"></div>
-         <p class="duration"></p>
+         <p class="duration">00:00</p>
         </div>
       
     </div>
-    <audio src="songs/04. Sorry.mp3" id="audio"></audio>
+    <audio src="songs/ncs/Dandelions - Dandelions (128 kbps).mp3" id="audio"></audio>
 
     <!--controls-->
     <div class="controls">
  
       <img src="./assets/controls_icon5.png " class="ctrl-img volume-button" style="height:60px;">
 
-      <input type="range" min="0" max="100" step="1" class="voulume-bar" style="width: 45%;height:6px;">
+      <input type="range" min="0" max="100" step="1" class="voulume-bar">
       <img src="./assets/album_icon2.png" class="ctrl-img hide-img" style="opacity: 1;padding: 0.5rem;">
       <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
 
@@ -1066,5 +1011,4 @@
 
   <script src="script.js"></script>
 </body>
-
 </html>
